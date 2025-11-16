@@ -839,4 +839,59 @@ document.addEventListener('DOMContentLoaded', function() {
             mapToEditPanelValues
         });
     }
+
 });
+
+/* ==============================================================
+   PROTEKSI WEBSITE (Anti Copy-Paste & Klik Kanan)
+   ============================================================== */
+
+// 1. Mencegah Klik Kanan (Context Menu)
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    // Opsional: Munculkan peringatan jika mau
+    // alert("Fitur klik kanan dimatikan untuk keamanan.");
+});
+
+// 2. Mencegah Shortcut Keyboard (Ctrl+C, Ctrl+U, F12, dll)
+document.onkeydown = function(e) {
+    // Mencegah F12 (Developer Tools)
+    if (e.keyCode == 123) {
+        return false;
+    }
+
+    // Mencegah Ctrl+Shift+I (Developer Tools Console)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+
+    // Mencegah Ctrl+Shift+C (Inspect Element)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+
+    // Mencegah Ctrl+Shift+J (Developer Tools Console)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+
+    // Mencegah Ctrl+U (View Source)
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
+
+    // Mencegah Ctrl+S (Save Page)
+    if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+        return false;
+    }
+    
+    // Mencegah Ctrl+C (Copy)
+    if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+
+    // Mencegah Ctrl+A (Select All)
+    if (e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)) {
+        return false;
+    }
+};
