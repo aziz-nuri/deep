@@ -1,640 +1,113 @@
-body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 20px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #FFD700 0%, #FF6B6B 50%, #4ECDC4 100%);
-    min-height: 100%;
-    position: relative;
-    overflow-x: hidden;
+/* ==============================================================
+   CUSTOM STYLES UNTUK KUIS PAI (PERBAIKAN LAYOUT)
+   ============================================================== */
+
+/* 1. Halaman Kuis */
+.quiz-page {
+    font-family: 'Nunito', sans-serif;
+    /* Background jika Tailwind tidak termuat, sebagai cadangan */
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    min-height: 100vh;
 }
 
-/* View Transition */
-@view-transition { navigation: auto; }
+/* 2. Container Kuis */
+.quiz-wrapper {
+    position: relative;
+    background: #ffffff;
+    border-radius: 1.5rem; /* rounded-3xl */
+    z-index: 10;
+}
 
-/* Doodle Background Elements */
+/* 3. Kartu Pertanyaan (BAGIAN YANG DIPERBAIKI) */
+.question-card {
+    /* Ganti absolute menjadi relative agar tidak menumpuk */
+    position: relative; 
+    width: 100%;
+    height: auto; /* Biarkan tinggi menyesuaikan isi konten */
+    background: #ffffff;
+    
+    /* Hapus border/shadow di sini karena sudah dihandle oleh HTML/Tailwind */
+    /* transition hanya untuk opacity saat muncul */
+    opacity: 0; 
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Animasi Muncul Halus */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. Opsi Jawaban */
+.option-button {
+    transition: all 0.2s ease;
+    border: 2px solid #f3f4f6; /* gray-100 */
+    cursor: pointer;
+}
+
+.option-button:hover {
+    transform: translateX(5px);
+    border-color: #a855f7; /* purple-500 */
+    background-color: #faf5ff; /* purple-50 */
+}
+
+.option-button.selected {
+    background-color: #f3e8ff; /* purple-100 */
+    border-color: #9333ea; /* purple-600 */
+    color: #6b21a8; /* purple-800 */
+}
+
+/* Pilihan Benar/Salah (Untuk Review) */
+.option-button.correct {
+    background-color: #dcfce7 !important; /* green-100 */
+    border-color: #22c55e !important;
+    color: #14532d !important;
+}
+
+.option-button.incorrect {
+    background-color: #fee2e2 !important; /* red-100 */
+    border-color: #ef4444 !important;
+    color: #7f1d1d !important;
+}
+
+/* 5. Indikator & Progress */
+.indicator-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e5e7eb;
+    transition: all 0.3s;
+}
+.indicator-dot.active {
+    background-color: #9333ea; /* purple-600 */
+    transform: scale(1.2);
+}
+
+/* 6. Doodles Background */
 .doodle {
     position: absolute;
-    opacity: 0.1;
+    opacity: 0.15;
     pointer-events: none;
     z-index: 0;
-}
-
-.doodle-star {
-    top: 10%;
-    left: 5%;
     font-size: 3rem;
-    animation: float 3s ease-in-out infinite;
 }
-
-.doodle-heart {
-    top: 20%;
-    right: 10%;
-    font-size: 2.5rem;
-    animation: float 4s ease-in-out infinite reverse;
-}
-
-.doodle-book {
-    bottom: 15%;
-    left: 8%;
-    font-size: 2.8rem;
-    animation: float 3.5s ease-in-out infinite;
-}
-
-.doodle-lightbulb {
-    top: 60%;
-    right: 5%;
-    font-size: 3.2rem;
-    animation: float 2.8s ease-in-out infinite reverse;
-}
+.doodle-star { top: 10%; left: 5%; animation: float 3s ease-in-out infinite; }
+.doodle-heart { top: 20%; right: 10%; font-size: 2.5rem; animation: float 4s ease-in-out infinite reverse; }
+.doodle-book { bottom: 15%; left: 8%; font-size: 2.8rem; animation: float 3.5s ease-in-out infinite; }
+.doodle-lightbulb { bottom: 20%; right: 5%; font-size: 3.2rem; animation: float 2.8s ease-in-out infinite reverse; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 30px;
-    background: white;
-    padding: 25px;
-    border-radius: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    border: 4px solid #9B59B6;
-}
-
-.quiz-title {
-    font-size: 2.5rem;
-    color: #9B59B6;
-    margin: 0 0 10px 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.instruction {
-    font-size: 1.2rem;
-    color: #2C3E50;
-    margin: 0;
-}
-
-.quiz-container {
-    position: relative;
-    height: 600px;
-    overflow: hidden;
-    border-radius: 25px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-}
-
-.question-card {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border: 3px solid #FFD700;
-    position: absolute;
-    width: calc(100% - 50px);
-    height: calc(100% - 50px);
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transform: translateX(100%);
-    opacity: 0;
-}
-
-.question-card.active {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.question-card.prev {
-    transform: translateX(-100%);
-    opacity: 0;
-}
-
-.question-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,215,0,0.1), transparent);
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    50% { transform: translateX(0%) translateY(0%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-.question-bubble {
-    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-    color: white;
-    padding: 20px;
-    border-radius: 25px;
-    margin-bottom: 20px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(255,107,107,0.3);
-}
-
-.question-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 30px;
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid #FF8E8E;
-}
-
-.question-number {
-    background: #FFD700;
-    color: #2C3E50;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-right: 15px;
-    font-size: 1.1rem;
-}
-
-.question-text {
-    font-size: 1.1rem;
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-.options-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.option-button {
-    background: linear-gradient(135deg, #4ECDC4, #45B7B8);
-    color: white;
-    border: none;
-    padding: 18px;
-    border-radius: 15px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(78,205,196,0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.option-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(78,205,196,0.4);
-}
-
-.option-button.option-a {
-    background: linear-gradient(135deg, #FF6B6B, #FF5252);
-}
-
-.option-button.option-b {
-    background: linear-gradient(135deg, #4ECDC4, #26C6DA);
-}
-
-.option-button.option-c {
-    background: linear-gradient(135deg, #9B59B6, #8E44AD);
-}
-
-.option-button.option-d {
-    background: linear-gradient(135deg, #F39C12, #E67E22);
-}
-
-.option-letter {
-    background: rgba(255,255,255,0.3);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 12px;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.option-button.selected {
-    transform: scale(0.95);
-    box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.option-button.correct {
-    background: linear-gradient(135deg, #2ECC71, #27AE60) !important;
-    animation: correctPulse 0.6s ease;
-}
-
-.option-button.incorrect {
-    background: linear-gradient(135deg, #E74C3C, #C0392B) !important;
-    animation: incorrectShake 0.6s ease;
-}
-
-@keyframes correctPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-@keyframes incorrectShake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-.score-display {
-    background: linear-gradient(135deg, #9B59B6, #8E44AD);
-    color: white;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-top: 30px;
-    box-shadow: 0 8px 25px rgba(155,89,182,0.3);
-}
-
-.score-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-.reset-button {
-    background: linear-gradient(135deg, #FFD700, #FFC107);
-    color: #2C3E50;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255,215,0,0.3);
-}
-
-.reset-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255,215,0,0.4);
-}
-
-.reward-section {
-    margin-top: 25px;
-    padding: 20px;
-    background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,107,107,0.1));
-    border-radius: 20px;
-    border: 2px solid #FFD700;
-}
-
-.reward-title {
-    color: #9B59B6;
-    font-size: 1.4rem;
-    margin: 0 0 10px 0;
-    text-align: center;
-    animation: bounce 2s infinite;
-}
-
-.reward-subtitle {
-    color: #2C3E50;
-    font-size: 1.1rem;
-    margin: 0 0 20px 0;
-    text-align: center;
-}
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.game-button {
-    background: linear-gradient(135deg, #4ECDC4, #45B7B8);
-    color: white;
-    border: none;
-    padding: 20px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(78,205,196,0.3);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-size: 2rem;
-}
-
-.game-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(78,205,196,0.4);
-}
-
-.game-button:nth-child(1) {
-    background: linear-gradient(135deg, #9B59B6, #8E44AD);
-}
-
-.game-button:nth-child(2) {
-    background: linear-gradient(135deg, #E67E22, #D35400);
-}
-
-.game-button:nth-child(3) {
-    background: linear-gradient(135deg, #2ECC71, #27AE60);
-}
-
-.game-button span {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.game-button small {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    font-weight: normal;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-.game-container {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    margin-top: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border: 3px solid #FFD700;
-    display: none;
-}
-
-.game-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.game-title {
-    font-size: 1.8rem;
-    color: #9B59B6;
-    margin: 0 0 10px 0;
-}
-
-.game-score {
-    font-size: 1.2rem;
-    color: #2C3E50;
-    margin: 0;
-}
-
-.memory-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    max-width: 400px;
-    margin: 0 auto 20px auto;
-}
-
-.memory-card {
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, #4ECDC4, #45B7B8);
-    border: none;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-}
-
-.memory-card:hover {
-    transform: scale(1.05);
-}
-
-.memory-card.flipped {
-    background: linear-gradient(135deg, #FFD700, #FFC107);
-    color: #2C3E50;
-}
-
-.memory-card.matched {
-    background: linear-gradient(135deg, #2ECC71, #27AE60);
-    color: white;
-}
-
-.word-puzzle {
-    text-align: center;
-}
-
-.scrambled-word {
-    font-size: 2rem;
-    color: #9B59B6;
-    background: rgba(155,89,182,0.1);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 20px 0;
-    letter-spacing: 3px;
-}
-
-.word-input {
-    font-size: 1.2rem;
-    padding: 12px;
-    border: 2px solid #4ECDC4;
-    border-radius: 10px;
-    text-align: center;
-    margin: 10px;
-    width: 200px;
-}
-
-.color-match-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    max-width: 300px;
-    margin: 0 auto 20px auto;
-}
-
-.color-button {
-    aspect-ratio: 1;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: white;
-    font-weight: bold;
-}
-
-.color-button:hover {
-    transform: scale(1.1);
-}
-
-.game-controls {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.game-btn {
-    background: linear-gradient(135deg, #9B59B6, #8E44AD);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-
-.game-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(155,89,182,0.3);
-}
-
-.navigation-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    padding: 0 20px;
-}
-
-.nav-button {
-    background: linear-gradient(135deg, #9B59B6, #8E44AD);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(155,89,182,0.3);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.nav-button:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(155,89,182,0.4);
-}
-
-.nav-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.progress-container {
-    flex: 1;
-    margin: 0 30px;
-    text-align: center;
-}
-
-.progress-bar {
-    background: rgba(255,255,255,0.3);
-    height: 8px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.progress-fill {
-    background: linear-gradient(90deg, #FFD700, #FF6B6B);
-    height: 100%;
-    border-radius: 10px;
-    transition: width 0.6s ease;
-    width: 0%;
-}
-
-.progress-text {
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.slide-indicator {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 20px 0;
-}
-
-.indicator-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.indicator-dot.active {
-    background: #FFD700;
-    transform: scale(1.2);
-}
-
-.question-counter {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 3px 10px rgba(255,107,107,0.3);
-}
-
-@media (max-width: 768px) {
-    .options-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .quiz-title {
-        font-size: 2rem;
-    }
-    
-    .question-text {
-        font-size: 1rem;
-    }
-
-}
-
-/* Mencegah seleksi teks pada halaman */
-body {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE10+/Edge */
-    user-select: none;         /* Standard */
-}
-
-/* Kecuali untuk input (agar user masih bisa mengetik jawaban di game teka-teki) */
-input, textarea {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+/* 7. Helper Classes */
+.hidden { display: none !important; }
+.fade-in { animation: fadeIn 0.5s ease-in-out; }
+
+/* 8. Proteksi Seleksi Teks */
+body.quiz-page {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
