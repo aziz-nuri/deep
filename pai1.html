@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Pilihan Ganda Interaktif</title>
+    
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="doodle doodle-star">⭐</div>
+    <div class="doodle doodle-heart">💖</div>
+    <div class="doodle doodle-book">📚</div>
+    <div class="doodle doodle-lightbulb">💡</div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="quiz-title" id="quiz-title">🌟 Kuis Akhlak &amp; Asmaul Husna 🌟</h1>
+            <p class="instruction" id="instruction-text">Pilih jawaban yang paling tepat untuk setiap pertanyaan!</p>
+        </header>
+
+        <div class="slide-indicator" id="slide-indicator">
+            </div>
+
+        <main class="quiz-container" id="quiz-container">
+            </main>
+
+        <div class="navigation-container">
+            <button class="nav-button" id="prev-btn" onclick="previousQuestion()"> ⬅️ Sebelumnya </button>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progress-text">
+                    Pertanyaan 1 dari 30
+                </div>
+            </div>
+            <button class="nav-button" id="next-btn" onclick="nextQuestion()"> Selanjutnya ➡️ </button>
+        </div>
+
+        <div class="score-display" id="score-display" style="display: none;">
+            <p class="score-text" id="score-text"></p>
+            <button class="reset-button" onclick="resetQuiz()">🔄 Ulangi Kuis</button>
+        </div>
+
+        <div class="game-container" id="memory-game">
+            <div class="game-header">
+                <h2 class="game-title">🧠 Memory Game - Asmaul Husna</h2>
+                <p class="game-score">Skor: <span id="memory-score">0</span> | Waktu: <span id="memory-time">0</span>s</p>
+            </div>
+            <div class="memory-grid" id="memory-grid">
+                </div>
+            <div class="game-controls">
+                <button class="game-btn" onclick="resetMemoryGame()">🔄 Main Lagi</button> 
+                <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
+            </div>
+        </div>
+
+        <div class="game-container" id="word-puzzle">
+            <div class="game-header">
+                <h2 class="game-title">🧩 Teka-teki Kata Akhlak</h2>
+                <p class="game-score">Skor: <span id="puzzle-score">0</span> | Level: <span id="puzzle-level">1</span></p>
+            </div>
+            <div class="word-puzzle">
+                <p>Susun huruf-huruf ini menjadi kata yang benar:</p>
+                <div class="scrambled-word" id="scrambled-word">HLAKSA</div>
+                <input type="text" class="word-input" id="word-input" placeholder="Ketik jawabanmu..."> <br>
+                <button class="game-btn" onclick="checkWord()">✓ Cek Jawaban</button> 
+                <button class="game-btn" onclick="nextPuzzle()">➡️ Kata Berikutnya</button>
+            </div>
+            <div class="game-controls">
+                <button class="game-btn" onclick="resetWordPuzzle()">🔄 Main Lagi</button> 
+                <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
+            </div>
+        </div>
+
+        <div class="game-container" id="color-match">
+            <div class="game-header">
+                <h2 class="game-title">🌈 Color Match Challenge</h2>
+                <p class="game-score">Skor: <span id="color-score">0</span> | Target: <span id="color-target">Merah</span></p>
+            </div>
+            <div class="color-match-grid" id="color-grid">
+                </div>
+            <div class="game-controls">
+                <button class="game-btn" onclick="resetColorMatch()">🔄 Main Lagi</button> 
+                <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
