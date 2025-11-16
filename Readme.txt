@@ -1,6 +1,3 @@
-Thanks for downloading this template!
+Pergi ke pasar membeli itik, Pulang ke rumah naik sepeda. Jadilah anak yang berakhlak baik, Agar disayang Allah Ta'ala.
 
-Template Name: Tempo
-Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Makan buah rasanya segar, Minumnya pakai es kelapa muda. Kalau kita rajin belajar, Masa depan cerah di depan mata.
