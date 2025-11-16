@@ -628,3 +628,30 @@ if (document.getElementById('quiz-container')) {
     // Start Quiz
     initQuiz();
 }
+
+/* ==============================================================
+   PROTEKSI WEBSITE (Anti Copy-Paste & Klik Kanan)
+   ============================================================== */
+
+// 1. Matikan Klik Kanan
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    // Opsional: Tampilkan alert jika mau
+    // alert("Maaf, fitur klik kanan dimatikan untuk melindungi konten.");
+});
+
+// 2. Matikan Tombol Shortcut (Ctrl+C, Ctrl+U, Ctrl+S, F12)
+document.onkeydown = function(e) {
+    if (e.ctrlKey && 
+        (e.keyCode === 67 || // Ctrl+C (Copy)
+         e.keyCode === 86 || // Ctrl+V (Paste)
+         e.keyCode === 85 || // Ctrl+U (View Source)
+         e.keyCode === 83 || // Ctrl+S (Save)
+         e.keyCode === 117)) { // F6
+        return false;
+    } else if (e.keyCode === 123) { // F12 (Developer Tools)
+        return false;
+    } else {
+        return true;
+    }
+};
