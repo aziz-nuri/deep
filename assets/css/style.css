@@ -2080,3 +2080,17 @@ section {
 .hidden {
     display: none !important;
 }
+
+/* Mencegah seleksi teks (Copy Paste Protection) */
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+/* Kecuali untuk formulir input (supaya orang tetap bisa isi form kontak) */
+input, textarea {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
