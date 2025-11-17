@@ -9,7 +9,6 @@ on:
 permissions:
   contents: write
   pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
@@ -19,15 +18,36 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create scripts folder (just in case)
+      - name: Ensure scripts folder exists
         run: mkdir -p scripts
 
-      - name: Run build script with secret
+      - name: Check scripts/generate.js exists
+        run: |
+          if [ ! -f scripts/generate.js ]; then
+            echo "ERROR: scripts/generate.js not found. Create it or skip build step."
+            exit 1
+          fi
+
+      - name: Run build script (uses API_KEY from Secrets)
         env:
           API_KEY: ${{ secrets.API_KEY }}
-        run: node scripts/generate.js
+        run: |
+          # Jalankan build; skrip harus exit non-zero jika gagal
+          node scripts/generate.js
 
-      - name: Upload build folder
+      - name: Verify public output
+        run: |
+          if [ ! -d ./public ]; then
+            echo "ERROR: ./public directory missing. Build failed or script didn't create output."
+            exit 1
+          fi
+          # optional: fail if no files in public
+          if [ -z "$(ls -A public || true)" ]; then
+            echo "ERROR: public directory is empty."
+            exit 1
+          fi
+
+      - name: Upload build artifact (optional)
         uses: actions/upload-artifact@v4
         with:
           name: site
