@@ -67,8 +67,8 @@
     position: relative;
     z-index: 1;
     /* Reset padding jika tema Tempo menambahkannya */
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    padding-right: var(--bs-gutter-x, 0.75rem);
 }
 
 .header {
@@ -894,3 +894,4 @@
         width: 160px;
     }
 }
+
