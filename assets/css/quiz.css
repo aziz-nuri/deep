@@ -1,4 +1,9 @@
-body {
+/* MODIFIKASI: 
+  - Style 'body' asli telah dipindahkan ke '.quiz-section' agar tidak bentrok dengan tema Tempo.
+  - Menambahkan 'user-select: none;' untuk anti-copy-paste.
+*/
+
+.quiz-section {
     box-sizing: border-box;
     margin: 0;
     padding: 20px;
@@ -7,10 +12,12 @@ body {
     min-height: 100%;
     position: relative;
     overflow-x: hidden;
-}
 
-/* View Transition */
-@view-transition { navigation: auto; }
+    /* Anti Copy-Paste CSS */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standar */
+}
 
 /* Doodle Background Elements */
 .doodle {
@@ -53,11 +60,15 @@ body {
     50% { transform: translateY(-20px); }
 }
 
-.container {
+/* Menggunakan .quiz-section .container agar lebih spesifik */
+.quiz-section .container {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    /* Reset padding jika tema Tempo menambahkannya */
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .header {
@@ -609,32 +620,277 @@ body {
 }
 
 @media (max-width: 768px) {
-    .options-grid {
-        grid-template-columns: 1fr;
+    /* Penyesuaian padding untuk .quiz-section, bukan body */
+    .quiz-section {
+        padding: 10px;
+    }
+    
+    .quiz-section .container {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .header {
+        padding: 15px;
+        margin-bottom: 15px;
     }
     
     .quiz-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+    
+    .instruction {
+        font-size: 1rem;
+    }
+    
+    .quiz-container {
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .question-card {
+        padding: 15px;
+        height: auto;
+        min-height: 450px;
+        position: relative;
+        transform: none;
+        opacity: 1;
+        /* Ganti transisi slide untuk mobile */
+        display: none; 
+    }
+    
+    .question-card.active {
+        display: block; /* Tampilkan hanya yang aktif */
+    }
+    
+    .question-bubble {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .question-number {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        margin-right: 10px;
     }
     
     .question-text {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 15px;
+    }
+    
+    .option-button {
+        padding: 15px 12px;
+        font-size: 0.9rem;
+        text-align: left;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .option-letter {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+    
+    .navigation-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+        margin-top: 15px;
+    }
+    
+    .nav-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+        justify-content: center; /* Pusatkan teks tombol */
+    }
+    
+    .progress-container {
+        margin: 0;
+        order: -1;
+        width: 100%; /* Pastikan progress bar penuh */
+    }
+    
+    .progress-text {
+        font-size: 0.85rem;
+    }
+    
+    .slide-indicator {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 10px 0;
+    }
+    
+    .indicator-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .question-counter {
+        top: 10px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .score-display {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .score-text {
+        font-size: 1.2rem;
+    }
+    
+    .reset-button {
+        padding: 12px 25px;
         font-size: 1rem;
     }
-
+    
+    .reward-section {
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    .reward-title {
+        font-size: 1.2rem;
+    }
+    
+    .reward-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .game-button {
+        padding: 15px;
+        font-size: 1.5rem;
+    }
+    
+    .game-button span {
+        font-size: 1rem;
+    }
+    
+    .game-button small {
+        font-size: 0.85rem;
+    }
+    
+    .game-container {
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    .game-title {
+        font-size: 1.4rem;
+    }
+    
+    .game-score {
+        font-size: 1rem;
+    }
+    
+    .memory-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        max-width: 320px;
+    }
+    
+    .memory-card {
+        font-size: 1.2rem;
+        min-height: 60px;
+    }
+    
+    .scrambled-word {
+        font-size: 1.5rem;
+        padding: 12px;
+        letter-spacing: 2px;
+    }
+    
+    .word-input {
+        font-size: 1rem;
+        padding: 10px;
+        width: 180px;
+    }
+    
+    .color-match-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 250px;
+    }
+    
+    .color-button {
+        font-size: 1rem;
+        min-height: 80px;
+    }
+    
+    .game-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin: 3px;
+    }
+    
+    .game-controls {
+        margin-top: 15px;
+    }
+    
+    /* Touch-friendly improvements */
+    .option-button, .nav-button, .game-button, .memory-card, .color-button {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    
+    /* Prevent zoom on input focus */
+    input, select, textarea {
+        font-size: 16px;
+    }
 }
 
-/* Mencegah seleksi teks pada halaman */
-body {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE10+/Edge */
-    user-select: none;         /* Standard */
-}
-
-/* Kecuali untuk input (agar user masih bisa mengetik jawaban di game teka-teki) */
-input, textarea {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+@media (max-width: 480px) {
+    .quiz-title {
+        font-size: 1.4rem;
+    }
+    
+    .question-text {
+        font-size: 0.9rem;
+    }
+    
+    .option-button {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+        min-height: 55px;
+    }
+    
+    .memory-grid {
+        max-width: 280px;
+    }
+    
+    .memory-card {
+        font-size: 1rem;
+        min-height: 50px;
+    }
+    
+    .scrambled-word {
+        font-size: 1.3rem;
+    }
+    
+    .word-input {
+        width: 160px;
+    }
 }
