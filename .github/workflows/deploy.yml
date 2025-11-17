@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # perlu untuk push ke gh-pages
+  contents: write
   pages: write
   id-token: write
 
@@ -18,25 +18,28 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies (safe for repos without package.json)
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "No package.json found. Skipping npm install."
+          fi
 
-      - name: Run build script that uses API_KEY (generate static files)
+      - name: Run build script that uses API_KEY
         env:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
-          # pastikan scripts/generate.js executable via node
+          mkdir -p scripts
           node scripts/generate.js
 
-      - name: Upload build output as artifact (optional backup)
+      - name: Upload build folder
         uses: actions/upload-artifact@v4
         with:
           name: site
