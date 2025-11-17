@@ -1,6 +1,9 @@
+/* MODIFIKASI: 
+  - Menambahkan logika anti-copy-paste di dalam event listener DOMContentLoaded.
+*/
 const defaultConfig = {
-    quiz_title: "🌟 Kuis Akhlak & Asmaul Husna 🌟",
-    instruction_text: "Pilih jawaban yang paling tepat untuk setiap pertanyaan!"
+    quiz_title: "🌟 Ulangan PAI Kelas 5 🌟",
+    instruction_text: "Uji Pemahaman Belajar PAI SDN Ujung Menteng 03"
 };
 
 let config = { ...defaultConfig };
@@ -502,7 +505,7 @@ function showResults() {
     if (percentage >= 80) {
         scoreHTML += `
             <div class="reward-section">
-                <h3 class="reward-title">🎉 Selamat! Kamu Mendapat Hadiah Permainan! 🎉</h3>
+                <h3 class="reward-title">🎉 Selamat! Kamu Mendapat Hadiah Permintaan! 🎉</h3>
                 <p class="reward-subtitle">Pilih permainan favoritmu sebagai reward:</p>
                 <div class="games-grid">
                     <button class="game-button" onclick="startMemoryGame()">
@@ -840,58 +843,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-});
-
-/* ==============================================================
-   PROTEKSI WEBSITE (Anti Copy-Paste & Klik Kanan)
-   ============================================================== */
-
-// 1. Mencegah Klik Kanan (Context Menu)
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    // Opsional: Munculkan peringatan jika mau
-    // alert("Fitur klik kanan dimatikan untuk keamanan.");
-});
-
-// 2. Mencegah Shortcut Keyboard (Ctrl+C, Ctrl+U, F12, dll)
-document.onkeydown = function(e) {
-    // Mencegah F12 (Developer Tools)
-    if (e.keyCode == 123) {
-        return false;
-    }
-
-    // Mencegah Ctrl+Shift+I (Developer Tools Console)
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-
-    // Mencegah Ctrl+Shift+C (Inspect Element)
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
-
-    // Mencegah Ctrl+Shift+J (Developer Tools Console)
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-
-    // Mencegah Ctrl+U (View Source)
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-
-    // Mencegah Ctrl+S (Save Page)
-    if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
-        return false;
-    }
+    // ========== LOGIKA ANTI COPY-PASTE ==========
     
-    // Mencegah Ctrl+C (Copy)
-    if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
+    // 1. Blokir Klik Kanan (Context Menu)
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert("Dilarang klik kanan!");
+    });
 
-    // Mencegah Ctrl+A (Select All)
-    if (e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)) {
-        return false;
-    }
-};
+    // 2. Blokir Pintasan Keyboard
+    document.addEventListener('keydown', function(e) {
+        // Blokir Ctrl+C (Copy), Ctrl+U (View Source), Ctrl+S (Save), Ctrl+P (Print), Ctrl+A (Select All)
+        if (e.ctrlKey || e.metaKey) { // metaKey untuk MacOS
+            switch (e.key) {
+                case 'c':
+                case 'u':
+                case 's':
+                case 'p':
+                case 'a':
+                    e.preventDefault();
+                    alert("Konten ini dilindungi.");
+                    break;
+            }
+        }
+        
+        // Blokir F12 (Inspect Element)
+        if (e.key === 'F12' || e.key === 'Inspect') {
+            e.preventDefault();
+            alert("Konten ini dilindungi.");
+        }
+    });
+    // ==============================================
+});
