@@ -311,6 +311,21 @@ const questions = [
     }
 ];
 
+// --- ACak opsi agar kunci tersebar di A/B/C/D ---
+
+function shuffleQuestionOptions() {
+    questions.forEach(q => {
+        const indices = q.options.map((_, i) => i);
+        indices.sort(() => Math.random() - 0.5); // acak indeks
+
+        const newOptions = indices.map(i => q.options[i]);
+        const newCorrectIndex = indices.indexOf(q.correct);
+
+        q.options = newOptions;
+        q.correct = newCorrectIndex;
+    });
+}
+
 let userAnswers = new Array(questions.length).fill(null);
 let quizCompleted = false;
 let currentQuestion = 0;
@@ -486,7 +501,7 @@ function showResults() {
     // Logic Hadiah
     let scoreHTML = `<p class="score-text">Skor Akhir: ${correctCount}/${questions.length} (${percentage}%)</p>`;
     
-    // UBAHAN: minimal 80% untuk membuka game
+    // Minimal 80% untuk membuka game
     if (percentage >= 80) {
         scoreHTML += `
             <div class="reward-section">
@@ -803,5 +818,7 @@ function resetColorMatch() {
 
 // Inisialisasi saat halaman dimuat
 document.addEventListener('DOMContentLoaded', function() {
+    // acak opsi dulu supaya jawaban benar tersebar di A/B/C/D
+    shuffleQuestionOptions();
     renderQuiz();
 });
