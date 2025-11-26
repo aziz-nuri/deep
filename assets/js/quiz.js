@@ -1,6 +1,6 @@
 // Konfigurasi Default (Tanpa SDK Element)
 const defaultConfig = {
-    quiz_title: "🌟 Kuis Akhlak & Asmaul Husna 🌟",
+    quiz_title: "🌟 Ulangan PAI 🌟",
     instruction_text: "Pilih jawaban yang paling tepat untuk setiap pertanyaan!"
 };
 
@@ -286,3 +286,4 @@ function initMemoryGame() {
 document.addEventListener('DOMContentLoaded', function() {
     renderQuiz();
 });
+
