@@ -1,155 +1,313 @@
 // --- KONFIGURASI DAN DATA ---
 
+const defaultConfig = {
+    quiz_title: "🌟 Kuis Asmaul Husna (Kelas 5) 🌟",
+    instruction_text: "Analisis kasus dan pilih Asmaul Husna atau sikap yang tepat!"
+};
+
+let config = { ...defaultConfig };
+
+// Data Pertanyaan: Al-Qawwiyu, Al-Qayyum, Al-Muhyi, Al-Mumit, Al-Baits (HOTS)
 const questions = [
     {
-        question: "Ketika melihat teman sekelas yang yatim tidak membawa bekal, sikap yang paling tepat adalah …",
-        options: ["Membiarkan saja karena bukan urusan kita", "Membantunya tanpa membuatnya merasa malu", "Menertawakannya bersama teman lain", "Menyuruhnya meminta kepada guru"],
-        correct: 1
+        question: "Setiap pagi, Ahmad merapikan tempat tidurnya sendiri, menyiapkan buku pelajaran, dan memakai seragam tanpa menyusahkan ibunya. Sikap kemandirian Ahmad ini adalah bentuk meneladani Asmaul Husna ...",
+        options: [
+            "Al-Qawwiyu (Maha Kuat)",
+            "Al-Baits (Maha Membangkitkan)",
+            "Al-Qayyum (Maha Mandiri)",
+            "Al-Mumit (Maha Mematikan)"
+        ],
+        correct: 2 // C (Al-Qayyum)
     },
     {
-        question: "Perbuatan berikut yang paling menunjukkan ketakwaan kepada Allah melalui sikap kepada anak yatim adalah …",
-        options: ["Menyumbang sekali lalu tidak peduli lagi", "Memberi bantuan sambil mengharapkan balasan", "Menolong secara tulus dan berkelanjutan", "Memberi hanya ketika dilihat guru"],
-        correct: 2
+        question: "Perhatikan pernyataan berikut: 'Segala yang bernyawa pasti akan merasakan kematian, dan tidak ada makhluk yang abadi di dunia ini.' Keyakinan ini didasarkan pada pemahaman terhadap Asmaul Husna ...",
+        options: [
+            "Al-Mumit",
+            "Al-Muhyi",
+            "Al-Qayyum",
+            "Al-Qawwiyu"
+        ],
+        correct: 0 // A (Al-Mumit)
     },
     {
-        question: "Jika kamu ingin mengajak teman lain untuk peduli pada anak yatim, cara yang paling baik adalah …",
-        options: ["Memaksa mereka menyumbang", "Menjelaskan manfaat sedekah dan memberi contoh", "Mengeluh bahwa hanya kamu yang peduli", "Menghukum mereka yang tidak mau"],
-        correct: 1
+        question: "Rina mengalami kegagalan saat mengikuti lomba matematika. Awalnya ia sedih, namun ia segera sadar dan bersemangat kembali untuk belajar lebih giat agar menang di lomba berikutnya. Sikap 'bangkit dari keterpurukan' ini meneladani sifat ...",
+        options: [
+            "Al-Mumit",
+            "Al-Qawwiyu",
+            "Al-Muhyi",
+            "Al-Baits"
+        ],
+        correct: 3 // D (Al-Baits)
     },
     {
-        question: "Tujuan utama Islam memerintahkan umatnya menyayangi anak yatim adalah …",
-        options: ["Agar masyarakat menghormati kita", "Agar anak yatim merasa dihargai dan tidak tersisih", "Agar kita dianggap dermawan", "Agar mendapat hadiah dari sekolah"],
-        correct: 1
+        question: "Allah SWT memiliki kekuatan yang tidak terbatas dan tidak pernah melemah. Kekuatan manusia sangat terbatas. Oleh karena itu, jika kita ingin menjadi kuat dalam menghadapi ujian hidup, kita harus ...",
+        options: [
+            "Berlatih angkat beban setiap hari",
+            "Memohon kekuatan hanya kepada Allah (Al-Qawwiyu)",
+            "Meminta bantuan kepada teman yang berotot",
+            "Menghindari semua masalah agar aman"
+        ],
+        correct: 1 // B (Al-Qawwiyu)
     },
     {
-        question: "Saat mengetahui ada anak yatim yang sering dibully, tindakan paling tepat adalah …",
-        options: ["Diam saja karena bukan masalah kita", "Ikut membully agar tidak dianggap berbeda", "Melaporkan ke guru dan memberi dukungan", "Menasihati dari jauh tanpa menolong"],
-        correct: 2
+        question: "Tanah yang tandus dan kering kerontang bisa menjadi subur kembali setelah turun hujan, sehingga tumbuhan bisa hidup. Fenomena alam ini adalah bukti bahwa Allah memiliki sifat ...",
+        options: [
+            "Al-Muhyi (Maha Menghidupkan)",
+            "Al-Mumit (Maha Mematikan)",
+            "Al-Qayyum (Maha Berdiri Sendiri)",
+            "Al-Baits (Maha Membangkitkan)"
+        ],
+        correct: 0 // A (Al-Muhyi)
     },
     {
-        question: "Rasulullah SAW sangat menyayangi anak yatim. Teladan ini sebaiknya kita tiru dengan cara …",
-        options: ["Membantu hanya saat acara tertentu", "Menyayangi semua teman tanpa membeda-bedakan", "Menunggu perintah orang tua dulu", "Hanya membantu anak yatim yang kaya"],
-        correct: 1
+        question: "Sebagai ketua kelas, Budi tidak pernah mengandalkan wakilnya untuk mengerjakan tugas utamanya. Ia berusaha menyelesaikan tanggung jawabnya sendiri. Perilaku Budi mencerminkan sikap ...",
+        options: [
+            "Tawakkal",
+            "Qanaah",
+            "Mandiri (Al-Qayyum)",
+            "Dermawan"
+        ],
+        correct: 2 // C (Mandiri/Al-Qayyum)
     },
     {
-        question: "Jika kamu tidak memiliki uang untuk membantu anak yatim, sikap terbaik adalah …",
-        options: ["Tidak melakukan apa-apa", "Menghindarinya", "Membantu dengan tenaga atau perhatian", "Menyalahkan orang lain"],
-        correct: 2
+        question: "Kelak di hari kiamat, seluruh manusia yang telah mati dan menjadi tulang belulang akan dihidupkan kembali dari kuburnya untuk dihisab. Peristiwa ini berkaitan erat dengan Asmaul Husna ...",
+        options: [
+            "Al-Qawwiyu",
+            "Al-Baits",
+            "Al-Qayyum",
+            "Al-Muhyi"
+        ],
+        correct: 1 // B (Al-Baits)
     },
     {
-        question: "Ketika kita memahami Asmaul Husna Al-Bashir (Yang Maha Melihat), perilaku yang seharusnya muncul adalah …",
-        options: ["Melakukan kebaikan hanya di depan guru", "Berbuat baik meski tidak ada yang melihat", "Menyembunyikan kesalahan dari orang lain", "Bangga ketika dipuji"],
-        correct: 1
+        question: "Fulan adalah anak yang kuat secara fisik. Agar kekuatannya bernilai ibadah dan meneladani Al-Qawwiyu, sebaiknya kekuatan tersebut digunakan untuk ...",
+        options: [
+            "Menakut-nakuti teman di kelas agar dihormati",
+            "Mengangkat meja guru yang berat saat piket",
+            "Pamer otot di depan cermin setiap hari",
+            "Mengalahkan semua orang yang berbeda pendapat"
+        ],
+        correct: 1 // B (Membantu/Positif)
     },
     {
-        question: "Seseorang percaya bahwa Allah Ar-Rahman (Maha Pengasih). Dalam kehidupan sehari-hari ia seharusnya …",
-        options: ["Memberi hanya kepada teman dekat", "Menyebarkan kebaikan tanpa pilih kasih", "Menolong agar dipuji", "Menyayangi hanya jika dibalas"],
-        correct: 1
+        question: "Menyadari bahwa Allah adalah **Al-Mumit**, sikap yang paling bijaksana bagi seorang siswa dalam memanfaatkan waktunya adalah ...",
+        options: [
+            "Bermain game sepanjang waktu selagi masih hidup",
+            "Tidur terus menerus agar tidak berbuat dosa",
+            "Takut berlebihan hingga tidak mau keluar rumah",
+            "Rajin beribadah dan beramal saleh sebagai bekal akhirat"
+        ],
+        correct: 3 // D (Persiapan bekal)
     },
     {
-        question: "Memahami Allah Al-Alim (Maha Mengetahui) membuat kita …",
-        options: ["Takut belajar", "Semangat belajar karena Allah mengetahui usaha kita", "Malas karena semuanya sudah diketahui Allah", "Berhenti berusaha"],
-        correct: 1
+        question: "Pak Tani tidak pernah putus asa menanam benih meskipun pernah gagal panen. Ia yakin Allah yang memberi kehidupan pada tanaman tersebut. Keyakinan Pak Tani adalah cerminan iman kepada ...",
+        options: [
+            "Al-Qawwiyu",
+            "Al-Qayyum",
+            "Al-Muhyi",
+            "Al-Mumit"
+        ],
+        correct: 2 // C (Al-Muhyi)
     },
     {
-        question: "Saat mengetahui Allah adalah Al-Ghafur (Maha Pengampun), sikap bijak yang harus kita lakukan adalah …",
-        options: ["Tidak perlu memperbaiki kesalahan", "Sering berbuat salah karena pasti diampuni", "Segera bertaubat dan memperbaiki diri", "Menunda meminta maaf"],
-        correct: 2
+        question: "Seseorang yang meneladani **Al-Qawwiyu** (Maha Kuat) tidak hanya kuat fisik, tetapi juga kuat mental. Contoh kuat mental adalah ...",
+        options: [
+            "Mampu menahan amarah dan godaan syaitan",
+            "Berani memukul orang yang mengejek",
+            "Mampu mengangkat beban 100 kg",
+            "Tidak pernah menangis saat sedih"
+        ],
+        correct: 0 // A (Kuat menahan hawa nafsu)
     },
     {
-        question: "Memahami As-Sami' (Maha Mendengar) mendorong kita untuk …",
-        options: ["Berdoa dengan sungguh-sungguh", "Berbicara sesuka hati", "Menghina orang lain secara diam-diam", "Berbohong dengan suara pelan"],
-        correct: 0
+        question: "Mengapa Allah disebut **Al-Qayyum** (Maha Berdiri Sendiri)?",
+        options: [
+            "Karena Allah membutuhkan bantuan malaikat untuk mengatur dunia",
+            "Karena Allah tidak bergantung pada makhluk-Nya, sedangkan makhluk bergantung pada-Nya",
+            "Karena Allah menciptakan manusia berpasang-pasangan",
+            "Karena Allah menyukai hamba yang menyendiri di gua"
+        ],
+        correct: 1 // B (Definisi Al-Qayyum)
     },
     {
-        question: "Bila seseorang yakin Allah Al-Adl (Maha Adil), maka ia akan …",
-        options: ["Berbuat sesuka hati", "Selalu bersikap adil kepada teman", "Lebih suka membalas kesalahan", "Memilih teman tertentu saja"],
-        correct: 1
+        question: "Rani sering malas bangun pagi untuk shalat Subuh. Namun, mengingat sifat Allah **Al-Baits** (Maha Membangkitkan), ia memotivasi dirinya untuk ...",
+        options: [
+            "Bangun dari rasa malas dan segera beribadah",
+            "Tidur lagi karena masih mengantuk",
+            "Meminta ibu membangunkannya dengan paksa",
+            "Menunggu matahari terbit baru bangun"
+        ],
+        correct: 0 // A (Bangkit dari kemalasan)
     },
     {
-        question: "Memahami Asmaul Husna seharusnya membuat seorang muslim …",
-        options: ["Takut berbuat kebaikan", "Meniru sifat-sifat baik Allah sesuai kemampuan", "Merasa paling benar", "Mudah menyerah"],
-        correct: 1
+        question: "Kematian bukanlah akhir segalanya, melainkan pintu menuju alam akhirat. Pemahaman terhadap **Al-Mumit** mengajarkan kita untuk menjauhi sikap ...",
+        options: [
+            "Rendah hati",
+            "Sombong dan cinta dunia berlebihan",
+            "Dermawan",
+            "Sabar"
+        ],
+        correct: 1 // B (Menghindari hubbud-dunya)
     },
     {
-        question: "Ketika orang tua menyuruh membantu membersihkan rumah, sikap anak sholeh adalah …",
-        options: ["Membantu dengan setengah hati", "Menolak karena sedang bermain", "Melakukannya dengan ikhlas", "Melakukannya setelah dimarahi"],
-        correct: 2
+        question: "Dokter berusaha mengobati pasien, tetapi yang menentukan sembuh atau hidupnya seseorang hakikatnya adalah Allah. Hal ini bukti Allah bersifat ...",
+        options: [
+            "Al-Qayyum",
+            "Al-Qawwiyu",
+            "Al-Baits",
+            "Al-Muhyi"
+        ],
+        correct: 3 // D (Al-Muhyi - Menghidupkan/Menyembuhkan)
     },
     {
-        question: "Salah satu ciri anak sholeh adalah disiplin. Contoh penerapan disiplin adalah …",
-        options: ["Belajar hanya ketika ujian", "Menunda salat hingga larut", "Menepati waktu belajar dan ibadah", "Bangun terlambat setiap hari"],
-        correct: 2
+        question: "Contoh perilaku yang **bertentangan** (tidak sesuai) dengan sifat Al-Qayyum adalah ...",
+        options: [
+            "Mengerjakan PR sendiri tanpa menyontek",
+            "Bergantung pada teman saat mengerjakan tugas kelompok",
+            "Mencuci piring sendiri setelah makan",
+            "Menyiapkan seragam sekolah di malam hari"
+        ],
+        correct: 1 // B (Bergantung pada orang lain)
     },
     {
-        question: "Jika melihat teman berbuat salah, perilaku anak sholeh adalah …",
-        options: ["Membiarkan", "Menertawakan", "Menasihati dengan cara baik", "Melapor tanpa mencoba menasihati"],
-        correct: 2
+        question: "Di sekolah, Andi melihat temannya yang difabel kesulitan membawa buku. Andi yang sehat dan kuat segera membantunya. Andi menggunakan anugerah kekuatan sebagai bentuk syukur meneladani ...",
+        options: [
+            "Al-Qawwiyu",
+            "Al-Baits",
+            "Al-Mumit",
+            "Al-Muhyi"
+        ],
+        correct: 0 // A (Al-Qawwiyu)
     },
     {
-        question: "Anak sholeh selalu berkata jujur. Hal ini bermanfaat untuk …",
-        options: ["Membuat orang lain takut", "Mendapat nilai tinggi tanpa belajar", "Dipercaya oleh guru dan teman", "Mendapat pujian setiap hari"],
-        correct: 2
+        question: "Hikmah beriman kepada **Al-Baits** bagi semangat hidup seorang pelajar adalah ...",
+        options: [
+            "Menjadi takut berbuat salah karena diawasi",
+            "Menjadi pesimis jika nilai ulangan jelek",
+            "Selalu optimis untuk memperbaiki diri dan mengejar cita-cita",
+            "Pasrah saja menerima nasib tanpa usaha"
+        ],
+        correct: 2 // C (Optimisme/Bangkit)
     },
     {
-        question: "Jika diminta mengumpulkan tugas, anak sholeh akan …",
-        options: ["Menyalin tugas teman", "Mengerjakan sendiri dengan sungguh-sungguh", "Menunggu ditegur", "Mengabaikan"],
-        correct: 1
+        question: "Allah mampu mencabut nyawa seorang raja yang berkuasa maupun seorang pengemis miskin kapan saja. Ini menunjukkan bahwa di hadapan **Al-Mumit**, manusia itu ...",
+        options: [
+            "Sangat kuat",
+            "Bisa menawar kematian",
+            "Lemah dan setara, tidak ada yang bisa lari dari takdir mati",
+            "Abadi selamanya"
+        ],
+        correct: 2 // C (Kesetaraan dalam kematian/kelemahan)
     },
     {
-        question: "Sikap terbaik saat melihat sampah berserakan di masjid adalah …",
-        options: ["Melewati saja", "Menyuruh orang lain", "Membersihkan dengan niat ibadah", "Menunggu petugas kebersihan"],
-        correct: 2
+        question: "Hati yang 'mati' adalah hati yang tidak mau menerima nasihat dan kebenaran. Untuk 'menghidupkan' kembali hati tersebut, kita perlu memohon kepada Allah **Al-Muhyi** dengan cara ...",
+        options: [
+            "Banyak tertawa dan bermain",
+            "Memperbanyak zikir, membaca Al-Quran, dan menuntut ilmu",
+            "Makan makanan yang bergizi dan mahal",
+            "Pergi liburan ke tempat yang jauh"
+        ],
+        correct: 1 // B (Menghidupkan hati dengan ibadah)
     },
     {
-        question: "Contoh perilaku malu yang benar (haya') adalah …",
-        options: ["Malu bertanya meski tidak paham", "Malu melakukan maksiat", "Malu berbuat baik", "Malu meminta maaf"],
-        correct: 1
+        question: "Manakah pasangan Asmaul Husna dan artinya yang **salah** di bawah ini?",
+        options: [
+            "Al-Qawwiyu = Maha Kuat",
+            "Al-Qayyum = Maha Membangkitkan",
+            "Al-Mumit = Maha Mematikan",
+            "Al-Muhyi = Maha Menghidupkan"
+        ],
+        correct: 1 // B (Salah, Al-Qayyum itu Maha Mandiri, Al-Baits yang membangkitkan)
     },
     {
-        question: "Ketika ada teman yang membutuhkan bantuan belajar, sikap anak sholeh adalah …",
-        options: ["Menolak agar tidak tersaingi", "Membantu sebisanya", "Mengabaikan", "Mengeluh"],
-        correct: 1
+        question: "Siswa yang meneladani **Al-Qawwiyu** akan memiliki pendirian yang teguh. Jika diajak teman untuk bolos sekolah, sikapnya adalah ...",
+        options: [
+            "Ikut bolos karena takut dimusuhi (Solidaritas)",
+            "Ragu-ragu dan akhirnya ikut",
+            "Menolak dengan tegas dan menasihati temannya",
+            "Pura-pura sakit agar diizinkan pulang"
+        ],
+        correct: 2 // C (Kuat pendirian dalam kebenaran)
     },
     {
-        question: "Berbagi bukan hanya tentang harta. Contoh berbagi yang benar adalah …",
-        options: ["Mengajari teman yang belum paham pelajaran", "Menunggu orang lain berbagi dulu", "Berbagi agar terlihat baik", "Berbagi kepada orang kaya"],
-        correct: 0
+        question: "Tidak menjadi beban bagi orang tua dan berusaha membantu pekerjaan rumah semampunya adalah cerminan dari sikap ...",
+        options: [
+            "Kemandirian (Al-Qayyum)",
+            "Keberanian (Al-Qawwiyu)",
+            "Kasih sayang (Ar-Rahman)",
+            "Keadilan (Al-Adl)"
+        ],
+        correct: 0 // A (Kemandirian)
     },
     {
-        question: "Jika seseorang memiliki makanan lebih dan melihat tetangganya belum makan, tindakan yang paling tepat adalah …",
-        options: ["Memakannya sendiri", "Menyimpannya untuk besok", "Membaginya dengan tetangga", "Menjualnya"],
-        correct: 2
+        question: "Meyakini adanya Hari Kebangkitan (Yaumul Ba'ats) membuat kita sadar bahwa ...",
+        options: [
+            "Hidup di dunia ini adalah satu-satunya kehidupan",
+            "Semua perbuatan di dunia akan dimintai pertanggungjawaban nanti",
+            "Setelah mati manusia akan hilang begitu saja",
+            "Kita bebas melakukan apa saja di dunia"
+        ],
+        correct: 1 // B (Pertanggungjawaban)
     },
     {
-        question: "Berbagi dapat membuat hati menjadi lapang karena …",
-        options: ["Orang lain akan membalas", "Kita merasa lebih hebat", "Kita menolong tanpa berharap imbalan", "Kita mendapat pujian"],
-        correct: 2
+        question: "Ketika melihat hewan peliharaan mati, sikap seorang muslim yang memahami **Al-Mumit** dan **Al-Muhyi** adalah ...",
+        options: [
+            "Menyalahkan takdir Allah",
+            "Meratapi terus menerus tanpa henti",
+            "Meyakini bahwa hidup dan mati adalah kuasa Allah dan mengambil pelajaran darinya",
+            "Bersikap acuh tak acuh karena itu hanya hewan"
+        ],
+        correct: 2 // C (Menerima takdir/Qada Qadar)
     },
     {
-        question: "Seorang teman kehilangan alat tulisnya. Cara berbagi yang baik adalah …",
-        options: ["Meminjamkannya alat tulis milikmu", "Menertawakannya", "Mengabaikan", "Menjual alat tulismu kepadanya"],
-        correct: 0
+        question: "Seseorang yang sukses tidak boleh sombong, karena kesuksesan dan kekuatannya bersumber dari Allah. Jika Allah menghendaki, Dia bisa mencabut kekuatan itu seketika. Sifat Allah yang Maha Kuat adalah ...",
+        options: [
+            "Al-Qayyum",
+            "Al-Matin",
+            "Al-Baits",
+            "Al-Qawwiyu"
+        ],
+        correct: 3 // D (Al-Qawwiyu)
     },
     {
-        question: "Berbagi waktu dapat dilakukan dengan cara …",
-        options: ["Menghabiskan waktu untuk bermain game", "Membantu adik belajar", "Menolak menolong orang tua", "Mengabaikan tugas rumah"],
-        correct: 1
+        question: "Pernyataan yang tepat mengenai perbedaan makna **Al-Muhyi** dan **Al-Baits** adalah ...",
+        options: [
+            "Al-Muhyi menghidupkan dari ketiadaan/kematian di dunia, Al-Baits membangkitkan dari kubur di akhirat",
+            "Al-Muhyi mematikan, Al-Baits menghidupkan",
+            "Keduanya memiliki arti yang sama persis tidak ada bedanya",
+            "Al-Muhyi untuk manusia saja, Al-Baits untuk hewan saja"
+        ],
+        correct: 0 // A (Perbedaan konteks menghidupkan)
     },
     {
-        question: "Dalam Islam, berbagi sebaiknya dilakukan …",
-        options: ["Saat diingatkan saja", "Saat ingin dipuji", "Kapan pun dengan hati ikhlas", "Ketika sedang banyak uang saja"],
-        correct: 2
+        question: "Supaya kita bisa hidup mandiri (meneladani Al-Qayyum) di masa depan, hal yang harus kita lakukan sejak SD adalah ...",
+        options: [
+            "Menabung uang jajan untuk membeli mainan",
+            "Belajar dengan rajin dan melatih keterampilan diri",
+            "Menyuruh pembantu melakukan semua hal",
+            "Hanya bermain game sepanjang hari"
+        ],
+        correct: 1 // B (Investasi skill untuk kemandirian)
     },
     {
-        question: "Jika seseorang merasa berat untuk bersedekah, cara melatih diri agar ikhlas adalah …",
-        options: ["Menyumbang dalam jumlah besar", "Mulai berbagi hal kecil secara rutin", "Memaksa diri tanpa niat", "Hanya memberi saat kaya"],
-        correct: 1
+        question: "Rasulullah SAW bersabda bahwa orang yang cerdas adalah orang yang mengingat kematian dan mempersiapkan bekal untuknya. Ini adalah implementasi iman kepada ...",
+        options: [
+            "Al-Qawwiyu",
+            "Al-Baits",
+            "Al-Qayyum",
+            "Al-Mumit"
+        ],
+        correct: 3 // D (Al-Mumit)
     },
     {
-        question: "Berbagi dapat menciptakan persaudaraan karena …",
-        options: ["Semua orang akan berutang budi", "Kita menjadi lebih disukai guru", "Membantu mengurangi kesenjangan dan menumbuhkan empati", "Menunjukkan siapa yang paling kaya"],
-        correct: 2
+        question: "Jika kita sedang malas belajar, kita harus segera 'bangkit' melawan rasa malas tersebut. Sikap tidak mudah menyerah ini meneladani Asmaul Husna ...",
+        options: [
+            "Al-Mumit",
+            "Al-Muhyi",
+            "Al-Baits",
+            "Al-Qayyum"
+        ],
+        correct: 2 // C (Al-Baits - Bangkit)
     }
 ];
 
@@ -163,6 +321,7 @@ function renderQuiz() {
     const container = document.getElementById('quiz-container');
     const indicatorContainer = document.getElementById('slide-indicator');
     
+    // Safety check jika elemen belum ada di DOM
     if (!container || !indicatorContainer) return;
 
     container.innerHTML = '';
@@ -212,17 +371,20 @@ function renderQuiz() {
 function selectAnswer(questionIndex, optionIndex) {
     if (quizCompleted) return;
 
+    // Hapus seleksi sebelumnya
     for (let i = 0; i < 4; i++) {
         const btn = document.getElementById(`q${questionIndex}_opt${i}`);
         if(btn) btn.classList.remove('selected');
     }
 
+    // Tambah seleksi baru
     const selectedBtn = document.getElementById(`q${questionIndex}_opt${optionIndex}`);
     if(selectedBtn) selectedBtn.classList.add('selected');
     
     userAnswers[questionIndex] = optionIndex;
     updateProgress();
 
+    // Auto advance
     setTimeout(() => {
         if (currentQuestion < questions.length - 1) {
             nextQuestion();
@@ -316,9 +478,10 @@ function showResults() {
     const percentage = Math.round((correctCount / questions.length) * 100);
     const scoreDisplay = document.getElementById('score-display');
     
+    // Logic Hadiah (SYARAT 80%)
     let scoreHTML = `<p class="score-text">Skor Akhir: ${correctCount}/${questions.length} (${percentage}%)</p>`;
     
-    if (percentage >= 70) {
+    if (percentage >= 80) { // Changed condition to 80%
         scoreHTML += `
             <div class="reward-section">
                 <h4 style="color:#e80368; font-weight:bold;">🎉 Selamat! Hadiah Game Terbuka! 🎉</h4>
@@ -337,7 +500,7 @@ function showResults() {
             </div>
         `;
     } else {
-        scoreHTML += `<p>Nilai kamu belum cukup untuk membuka game bonus (Min. 70%). <br> Jangan menyerah, coba lagi ya!</p>`;
+        scoreHTML += `<p>Nilai kamu belum cukup untuk membuka game bonus (Min. 80%). <br> Ayo belajar lagi dan coba ulangi kuisnya!</p>`;
     }
     
     scoreHTML += `<button class="reset-button" onclick="resetQuiz()">🔄 Ulangi Kuis</button>`;
@@ -376,7 +539,7 @@ function backToScore() {
     document.getElementById('score-display').style.display = 'block';
 }
 
-// --- GAME LOGIC ---
+// --- LOGIKA MINI GAMES ---
 
 // 1. Memory Game
 let memoryCards = [];
@@ -384,7 +547,8 @@ let flippedCards = [];
 let memoryScore = 0;
 let memoryTimer = null;
 let memoryTime = 0;
-const asmaulHusna = ['الرحمن', 'الرحيم', 'الملك', 'القدوس', 'السلام', 'المؤمن', 'المهيمن', 'العزيز'];
+// Menggunakan Asmaul Husna yang baru
+const asmaulHusna = ['Al-Qawwiyu', 'Al-Qayyum', 'Al-Muhyi', 'Al-Mumit', 'Al-Baits', 'Al-Matin', 'Al-Wahid', 'Al-Ahad'];
 
 function startMemoryGame() {
     document.getElementById('score-display').style.display = 'none';
@@ -475,15 +639,16 @@ function resetMemoryGame() {
 let puzzleScore = 0;
 let puzzleLevel = 1;
 let currentPuzzle = 0;
+// Update kata-kata puzzle sesuai tema
 const akhlakWords = [
-    { scrambled: 'HLAKSA', answer: 'AKHLAK' },
-    { scrambled: 'RABAS', answer: 'SABAR' },
-    { scrambled: 'RUJUJ', answer: 'JUJUR' },
-    { scrambled: 'KALIS', answer: 'IKHLAS' },
-    { scrambled: 'WAWAT', answer: 'TAWADHU' },
-    { scrambled: 'NAMAS', answer: 'AMANAH' },
-    { scrambled: 'RABIK', answer: 'IKBAR' },
-    { scrambled: 'HALES', answer: 'SHALEH' }
+    { scrambled: 'YUMQAY', answer: 'QAYYUM' },
+    { scrambled: 'WIYYUQA', answer: 'QAWWIYU' },
+    { scrambled: 'YIHUAM', answer: 'MUHYI' },
+    { scrambled: 'TUMIM', answer: 'MUMIT' },
+    { scrambled: 'SITBA', answer: 'BAITS' },
+    { scrambled: 'DIRIMAN', answer: 'MANDIRI' },
+    { scrambled: 'KITHANG', answer: 'BANGKIT' },
+    { scrambled: 'TUA K', answer: 'KUAT' }
 ];
 
 function startWordPuzzle() {
@@ -508,8 +673,8 @@ function updateWordPuzzle() {
 }
 
 function checkWord() {
-    const input = document.getElementById('word-input').value.toUpperCase();
-    const correct = akhlakWords[currentPuzzle].answer;
+    const input = document.getElementById('word-input').value.toUpperCase().replace(/\s/g, ''); // Hapus spasi
+    const correct = akhlakWords[currentPuzzle].answer.replace(/\s/g, '');
     
     if (input === correct) {
         puzzleScore += 20;
