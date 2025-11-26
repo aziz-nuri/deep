@@ -1,33 +1,43 @@
 // --- KONFIGURASI DAN DATA ---
 
 const defaultConfig = {
-    quiz_title: "🌟 Kuis Asmaul Husna (Kelas 5) 🌟",
-    instruction_text: "Analisis kasus dan pilih Asmaul Husna atau sikap yang tepat!"
+    quiz_title: "🌟 Ulangan PAI (HOTS) 🌟",
+    instruction_text: "Analisis setiap kasus dan pilih tindakan yang paling tepat!"
 };
 
 let config = { ...defaultConfig };
 
-// Data Pertanyaan: Al-Qawwiyu, Al-Qayyum, Al-Muhyi, Al-Mumit, Al-Baits (HOTS)
+// Data Pertanyaan Tipe HOTS (Higher Order Thinking Skills)
 const questions = [
     {
-        question: "Setiap pagi, Ahmad merapikan tempat tidurnya sendiri, menyiapkan buku pelajaran, dan memakai seragam tanpa menyusahkan ibunya. Sikap kemandirian Ahmad ini adalah bentuk meneladani Asmaul Husna ...",
+        question: "Andi melihat teman sekelasnya yang yatim, Budi, sering menyendiri saat jam istirahat karena tidak membawa uang saku. Andi ingin membantu, tetapi ia khawatir Budi tersinggung. Langkah paling bijaksana yang mencerminkan adab yang baik adalah ...",
         options: [
-            "Al-Qawwiyu (Maha Kuat)",
-            "Al-Baits (Maha Membangkitkan)",
-            "Al-Qayyum (Maha Mandiri)",
-            "Al-Mumit (Maha Mematikan)"
+            "Memberikan uang jajan kepada Budi di depan teman-teman agar Budi merasa diperhatikan.",
+            "Mengajak Budi makan bersama dan berbagi bekal seolah-olah itu hal yang biasa agar menjaga harga dirinya.",
+            "Melaporkan kondisi Budi kepada guru agar diumumkan di kelas untuk penggalangan dana.",
+            "Menasihati Budi agar bersabar karena kemiskinan adalah ujian dari Allah."
         ],
-        correct: 2 // C (Al-Qayyum)
+        correct: 1 // Kunci: Menjaga harga diri (izzah) penerima sedekah lebih utama.
     },
     {
-        question: "Perhatikan pernyataan berikut: 'Segala yang bernyawa pasti akan merasakan kematian, dan tidak ada makhluk yang abadi di dunia ini.' Keyakinan ini didasarkan pada pemahaman terhadap Asmaul Husna ...",
+        question: "Rasulullah SAW mengibaratkan kedekatan beliau dengan penyantun anak yatim seperti jari telunjuk dan jari tengah. Makna tersirat dari hadis ini terkait motivasi sosial adalah ...",
         options: [
-            "Al-Mumit",
-            "Al-Muhyi",
-            "Al-Qayyum",
-            "Al-Qawwiyu"
+            "Orang yang menyantuni anak yatim akan menjadi pemimpin umat bersama Rasulullah.",
+            "Menyantuni anak yatim dapat meningkatkan status sosial seseorang di masyarakat.",
+            "Adanya jaminan kedekatan posisi dan derajat yang tinggi di surga bagi mereka yang peduli secara tulus.",
+            "Anak yatim harus diperlakukan seperti anak kandung sendiri agar kita masuk surga."
         ],
-        correct: 0 // A (Al-Mumit)
+        correct: 2 // Kunci: Analisis makna hadis tentang derajat di akhirat.
+    },
+    {
+        question: "Dalam sebuah diskusi, Ahmad berpendapat bahwa menyantuni anak yatim cukup dengan memberi uang sekali saja. Namun, Fatimah tidak setuju. Argumen Fatimah yang paling tepat berdasarkan prinsip 'Kesejahteraan Berkelanjutan' dalam Islam adalah ...",
+        options: [
+            "Santunan harus terus menerus karena uang akan cepat habis jika tidak diawasi.",
+            "Sebaiknya santunan berupa pembinaan pendidikan atau keterampilan agar mereka bisa mandiri di masa depan.",
+            "Memberi uang saja tidak cukup karena mereka juga butuh kasih sayang orang tua pengganti.",
+            "Anak yatim tidak boleh dimanja dengan uang agar mereka tumbuh menjadi anak yang kuat."
+        ],
+        correct: 1 // Kunci: Evaluasi solusi jangka panjang (empowerment).
     },
     {
         question: "Rina mengalami kegagalan saat mengikuti lomba matematika. Awalnya ia sedih, namun ia segera sadar dan bersemangat kembali untuk belajar lebih giat agar menang di lomba berikutnya. Sikap 'bangkit dari keterpurukan' ini meneladani sifat ...",
@@ -38,16 +48,6 @@ const questions = [
             "Al-Baits"
         ],
         correct: 3 // D (Al-Baits)
-    },
-    {
-        question: "Allah SWT memiliki kekuatan yang tidak terbatas dan tidak pernah melemah. Kekuatan manusia sangat terbatas. Oleh karena itu, jika kita ingin menjadi kuat dalam menghadapi ujian hidup, kita harus ...",
-        options: [
-            "Berlatih angkat beban setiap hari",
-            "Memohon kekuatan hanya kepada Allah (Al-Qawwiyu)",
-            "Meminta bantuan kepada teman yang berotot",
-            "Menghindari semua masalah agar aman"
-        ],
-        correct: 1 // B (Al-Qawwiyu)
     },
     {
         question: "Tanah yang tandus dan kering kerontang bisa menjadi subur kembali setelah turun hujan, sehingga tumbuhan bisa hidup. Fenomena alam ini adalah bukti bahwa Allah memiliki sifat ...",
@@ -64,30 +64,10 @@ const questions = [
         options: [
             "Tawakkal",
             "Qanaah",
-            "Mandiri (Al-Qayyum)",
+            "Mandiri",
             "Dermawan"
         ],
         correct: 2 // C (Mandiri/Al-Qayyum)
-    },
-    {
-        question: "Kelak di hari kiamat, seluruh manusia yang telah mati dan menjadi tulang belulang akan dihidupkan kembali dari kuburnya untuk dihisab. Peristiwa ini berkaitan erat dengan Asmaul Husna ...",
-        options: [
-            "Al-Qawwiyu",
-            "Al-Baits",
-            "Al-Qayyum",
-            "Al-Muhyi"
-        ],
-        correct: 1 // B (Al-Baits)
-    },
-    {
-        question: "Fulan adalah anak yang kuat secara fisik. Agar kekuatannya bernilai ibadah dan meneladani Al-Qawwiyu, sebaiknya kekuatan tersebut digunakan untuk ...",
-        options: [
-            "Menakut-nakuti teman di kelas agar dihormati",
-            "Mengangkat meja guru yang berat saat piket",
-            "Pamer otot di depan cermin setiap hari",
-            "Mengalahkan semua orang yang berbeda pendapat"
-        ],
-        correct: 1 // B (Membantu/Positif)
     },
     {
         question: "Menyadari bahwa Allah adalah **Al-Mumit**, sikap yang paling bijaksana bagi seorang siswa dalam memanfaatkan waktunya adalah ...",
@@ -100,220 +80,243 @@ const questions = [
         correct: 3 // D (Persiapan bekal)
     },
     {
-        question: "Pak Tani tidak pernah putus asa menanam benih meskipun pernah gagal panen. Ia yakin Allah yang memberi kehidupan pada tanaman tersebut. Keyakinan Pak Tani adalah cerminan iman kepada ...",
-        options: [
-            "Al-Qawwiyu",
-            "Al-Qayyum",
-            "Al-Muhyi",
-            "Al-Mumit"
-        ],
-        correct: 2 // C (Al-Muhyi)
-    },
-    {
-        question: "Seseorang yang meneladani **Al-Qawwiyu** (Maha Kuat) tidak hanya kuat fisik, tetapi juga kuat mental. Contoh kuat mental adalah ...",
-        options: [
-            "Mampu menahan amarah dan godaan syaitan",
-            "Berani memukul orang yang mengejek",
-            "Mampu mengangkat beban 100 kg",
-            "Tidak pernah menangis saat sedih"
-        ],
-        correct: 0 // A (Kuat menahan hawa nafsu)
-    },
-    {
-        question: "Mengapa Allah disebut **Al-Qayyum** (Maha Berdiri Sendiri)?",
-        options: [
-            "Karena Allah membutuhkan bantuan malaikat untuk mengatur dunia",
-            "Karena Allah tidak bergantung pada makhluk-Nya, sedangkan makhluk bergantung pada-Nya",
-            "Karena Allah menciptakan manusia berpasang-pasangan",
-            "Karena Allah menyukai hamba yang menyendiri di gua"
-        ],
-        correct: 1 // B (Definisi Al-Qayyum)
-    },
-    {
-        question: "Rani sering malas bangun pagi untuk shalat Subuh. Namun, mengingat sifat Allah **Al-Baits** (Maha Membangkitkan), ia memotivasi dirinya untuk ...",
-        options: [
-            "Bangun dari rasa malas dan segera beribadah",
-            "Tidur lagi karena masih mengantuk",
-            "Meminta ibu membangunkannya dengan paksa",
-            "Menunggu matahari terbit baru bangun"
-        ],
-        correct: 0 // A (Bangkit dari kemalasan)
-    },
-    {
         question: "Kematian bukanlah akhir segalanya, melainkan pintu menuju alam akhirat. Pemahaman terhadap **Al-Mumit** mengajarkan kita untuk menjauhi sikap ...",
         options: [
-            "Rendah hati",
-            "Sombong dan cinta dunia berlebihan",
-            "Dermawan",
-            "Sabar"
+            "Mendengarkan semua informasi lalu menyebarkannya agar update.",
+            "Hanya mendengar informasi yang menyudutkan lawan bicara.",
+            "Melakukan *tabayyun* (cek & ricek) dan menyaring apa yang didengar sebelum diucapkan kembali.",
+            "Menutup telinga dari semua berita agar tidak berdosa."
         ],
-        correct: 1 // B (Menghindari hubbud-dunya)
+        correct: 2 // Kunci: Literasi digital dikaitkan dengan sifat Allah.
     },
     {
-        question: "Dokter berusaha mengobati pasien, tetapi yang menentukan sembuh atau hidupnya seseorang hakikatnya adalah Allah. Hal ini bukti Allah bersifat ...",
+        question: "Fulan sering berbuat curang saat ulangan karena merasa guru tidak melihat. Padahal Allah bersifat **Al-Basir**. Apa kerugian terbesar Fulan dalam aspek pembentukan karakter?",
         options: [
-            "Al-Qayyum",
-            "Al-Qawwiyu",
-            "Al-Baits",
-            "Al-Muhyi"
+            "Nilainya akan dibatalkan jika ketahuan guru di kemudian hari.",
+            "Ia kehilangan kesempatan untuk melatih kejujuran dan integritas diri.",
+            "Teman-temannya akan menjauhinya karena ia pelit memberi contekan.",
+            "Ia akan sulit masuk sekolah favorit karena catatan perilakunya buruk."
         ],
-        correct: 3 // D (Al-Muhyi - Menghidupkan/Menyembuhkan)
+        correct: 1 // Kunci: Analisis dampak karakter jangka panjang.
     },
     {
-        question: "Contoh perilaku yang **bertentangan** (tidak sesuai) dengan sifat Al-Qayyum adalah ...",
+        question: "Siti ingin bersedekah, tetapi uangnya hanya cukup untuk jajan hari itu. Ia memilih menahan lapar dan memberikan uangnya kepada pengemis tua. Sikap Siti disebut *Iitsar* (mendahulukan orang lain). Mengapa sikap ini bernilai tinggi?",
         options: [
-            "Mengerjakan PR sendiri tanpa menyontek",
-            "Bergantung pada teman saat mengerjakan tugas kelompok",
-            "Mencuci piring sendiri setelah makan",
-            "Menyiapkan seragam sekolah di malam hari"
+            "Karena dilakukan saat kondisi lapang dan berlebih.",
+            "Karena Siti ingin dianggap dermawan oleh pengemis tersebut.",
+            "Karena dilakukan saat diri sendiri juga membutuhkan, menunjukkan pengorbanan maksimal.",
+            "Karena Siti sedang diet sehingga tidak masalah jika tidak makan."
         ],
-        correct: 1 // B (Bergantung pada orang lain)
+        correct: 2 // Kunci: Evaluasi tingkat pengorbanan dalam amal (Altruisme).
     },
     {
-        question: "Di sekolah, Andi melihat temannya yang difabel kesulitan membawa buku. Andi yang sehat dan kuat segera membantunya. Andi menggunakan anugerah kekuatan sebagai bentuk syukur meneladani ...",
+        question: "Disiplin bukan hanya tentang menaati aturan sekolah, tetapi juga aturan agama. Manakah contoh disiplin waktu yang berdampak langsung pada ketenangan jiwa?",
         options: [
-            "Al-Qawwiyu",
-            "Al-Baits",
-            "Al-Mumit",
-            "Al-Muhyi"
+            "Datang ke sekolah tepat waktu agar tidak dihukum guru.",
+            "Menunaikan salat di awal waktu sehingga tidak terburu-buru dan lebih khusyuk.",
+            "Mengumpulkan tugas tepat waktu supaya mendapat nilai tambahan.",
+            "Tidur tepat waktu agar besok bisa bangun pagi dan menonton TV."
         ],
-        correct: 0 // A (Al-Qawwiyu)
+        correct: 1 // Kunci: Korelasi disiplin dengan kualitas ibadah/psikologis.
     },
     {
-        question: "Hikmah beriman kepada **Al-Baits** bagi semangat hidup seorang pelajar adalah ...",
+        question: "Jujur itu kadang pahit. Ketika kamu memecahkan vas bunga kesayangan ibu, tindakan jujur yang bertanggung jawab adalah ...",
         options: [
-            "Menjadi takut berbuat salah karena diawasi",
-            "Menjadi pesimis jika nilai ulangan jelek",
-            "Selalu optimis untuk memperbaiki diri dan mengejar cita-cita",
-            "Pasrah saja menerima nasib tanpa usaha"
+            "Mengaku salah, meminta maaf, dan berusaha membersihkan pecahannya.",
+            "Diam saja dan berpura-pura tidak tahu sampai ibu bertanya.",
+            "Mengaku salah tapi menyalahkan kucing yang lewat agar tidak dimarahi.",
+            "Segera mengganti vas baru sebelum ibu pulang agar ibu tidak tahu."
         ],
-        correct: 2 // C (Optimisme/Bangkit)
+        correct: 0 // Kunci: Kejujuran yang disertai tanggung jawab (Accountability).
     },
     {
-        question: "Allah mampu mencabut nyawa seorang raja yang berkuasa maupun seorang pengemis miskin kapan saja. Ini menunjukkan bahwa di hadapan **Al-Mumit**, manusia itu ...",
+        question: "Hidup sederhana bukan berarti miskin. Makna **Qanaah** (merasa cukup) bagi seorang siswa yang memiliki gadget model lama adalah ...",
         options: [
-            "Sangat kuat",
-            "Bisa menawar kematian",
-            "Lemah dan setara, tidak ada yang bisa lari dari takdir mati",
-            "Abadi selamanya"
+            "Merasa malu dan menyembunyikan gadgetnya dari teman-teman.",
+            "Meminta orang tua membelikan yang baru dengan cara mogok makan.",
+            "Bersyukur gadgetnya masih berfungsi untuk belajar dan tidak iri pada milik teman.",
+            "Menggunakan gadget teman agar terlihat mengikuti tren kekinian."
         ],
-        correct: 2 // C (Kesetaraan dalam kematian/kelemahan)
+        correct: 2 // Kunci: Definisi Qanaah dalam konteks modern.
     },
     {
-        question: "Hati yang 'mati' adalah hati yang tidak mau menerima nasihat dan kebenaran. Untuk 'menghidupkan' kembali hati tersebut, kita perlu memohon kepada Allah **Al-Muhyi** dengan cara ...",
+        question: "Menjaga kebersihan lingkungan adalah sebagian dari iman. Jika melihat sampah berserakan di masjid setelah acara pengajian, sikap inisiatif yang paling tepat adalah ...",
         options: [
-            "Banyak tertawa dan bermain",
-            "Memperbanyak zikir, membaca Al-Quran, dan menuntut ilmu",
-            "Makan makanan yang bergizi dan mahal",
-            "Pergi liburan ke tempat yang jauh"
+            "Memanggil petugas kebersihan masjid karena itu tugas mereka.",
+            "Memungut sampah yang dekat dengan kita dan membuangnya tanpa menunggu perintah.",
+            "Memfoto tumpukan sampah dan menyebarkannya di medsos agar viral.",
+            "Mengeluh kepada panitia pengajian karena tidak menyediakan tempat sampah."
         ],
-        correct: 1 // B (Menghidupkan hati dengan ibadah)
+        correct: 1 // Kunci: Inisiatif dan tanggung jawab personal (Action-oriented).
     },
     {
-        question: "Manakah pasangan Asmaul Husna dan artinya yang **salah** di bawah ini?",
+        question: "Haya' (Malu) adalah perhiasan akhlak. Penerapan rasa malu yang **salah** tempat adalah ...",
         options: [
-            "Al-Qawwiyu = Maha Kuat",
-            "Al-Qayyum = Maha Membangkitkan",
-            "Al-Mumit = Maha Mematikan",
-            "Al-Muhyi = Maha Menghidupkan"
+            "Malu untuk bertanya kepada guru tentang materi yang belum dipahami.",
+            "Malu jika auratnya terlihat oleh orang yang bukan mahram.",
+            "Malu ketika berbicara kasar di depan orang tua.",
+            "Malu jika ketahuan tidak mengerjakan PR."
         ],
-        correct: 1 // B (Salah, Al-Qayyum itu Maha Mandiri, Al-Baits yang membangkitkan)
+        correct: 0 // Kunci: Membedakan malu positif dan negatif (penghambat belajar).
     },
     {
-        question: "Siswa yang meneladani **Al-Qawwiyu** akan memiliki pendirian yang teguh. Jika diajak teman untuk bolos sekolah, sikapnya adalah ...",
+        question: "Tawadhu (rendah hati) berbeda dengan rendah diri. Ciri siswa yang tawadhu saat menjadi juara kelas adalah ...",
         options: [
-            "Ikut bolos karena takut dimusuhi (Solidaritas)",
-            "Ragu-ragu dan akhirnya ikut",
-            "Menolak dengan tegas dan menasihati temannya",
-            "Pura-pura sakit agar diizinkan pulang"
+            "Menolak ucapan selamat dari teman karena merasa tidak pantas.",
+            "Mengakui keberhasilannya adalah hasil usaha sendiri tanpa bantuan orang lain.",
+            "Tetap bergaul dengan siapa saja dan bersedia mengajari teman yang kesulitan.",
+            "Menyembunyikan pialanya agar tidak ada yang tahu prestasinya."
         ],
-        correct: 2 // C (Kuat pendirian dalam kebenaran)
+        correct: 2 // Kunci: Tawadhu sosial (inklusif).
     },
     {
-        question: "Tidak menjadi beban bagi orang tua dan berusaha membantu pekerjaan rumah semampunya adalah cerminan dari sikap ...",
+        question: "Tolong-menolong (Ta'awun) harus dalam kebaikan. Jika temanmu memintamu memberitahu jawaban saat ujian demi 'solidaritas', sikapmu adalah ...",
         options: [
-            "Kemandirian (Al-Qayyum)",
-            "Keberanian (Al-Qawwiyu)",
-            "Kasih sayang (Ar-Rahman)",
-            "Keadilan (Al-Adl)"
+            "Memberikan jawaban karena kasihan jika nilainya jelek.",
+            "Menolak dengan tegas namun santun, lalu mengajaknya belajar bersama setelah ujian.",
+            "Melaporkannya ke guru pengawas dengan suara keras agar dia jera.",
+            "Memberikan jawaban yang salah agar dia tidak menyontek lagi."
         ],
-        correct: 0 // A (Kemandirian)
+        correct: 1 // Kunci: Menolak kemungkaran dengan cara ma'ruf & solusi konstruktif.
     },
     {
-        question: "Meyakini adanya Hari Kebangkitan (Yaumul Ba'ats) membuat kita sadar bahwa ...",
+        question: "Berbakti kepada orang tua (Birrul Walidain) saat mereka sudah meninggal dunia dapat dilakukan dengan cara ...",
         options: [
-            "Hidup di dunia ini adalah satu-satunya kehidupan",
-            "Semua perbuatan di dunia akan dimintai pertanggungjawaban nanti",
-            "Setelah mati manusia akan hilang begitu saja",
-            "Kita bebas melakukan apa saja di dunia"
+            "Menangisi kepergian mereka setiap hari di kamar.",
+            "Membangun patung mereka sebagai kenang-kenangan.",
+            "Mendoakan mereka, menyambung silaturahmi dengan kerabat mereka, dan bersedekah atas nama mereka.",
+            "Menghabiskan harta warisan untuk bersenang-senang agar tidak sedih."
         ],
-        correct: 1 // B (Pertanggungjawaban)
+        correct: 2 // Kunci: Amal jariyah dan etika pasca-kematian.
     },
     {
-        question: "Ketika melihat hewan peliharaan mati, sikap seorang muslim yang memahami **Al-Mumit** dan **Al-Muhyi** adalah ...",
+        question: "Mengapa Allah melarang sikap **Riya'** (pamer) dalam beribadah?",
         options: [
-            "Menyalahkan takdir Allah",
-            "Meratapi terus menerus tanpa henti",
-            "Meyakini bahwa hidup dan mati adalah kuasa Allah dan mengambil pelajaran darinya",
-            "Bersikap acuh tak acuh karena itu hanya hewan"
+            "Karena Riya' dapat menghapus pahala amal seperti api membakar kayu bakar.",
+            "Karena orang yang pamer biasanya orang yang kaya raya.",
+            "Karena Riya' membuat orang lain menjadi iri hati kepada kita.",
+            "Karena ibadah harus dilakukan di tempat yang sepi dan gelap."
         ],
-        correct: 2 // C (Menerima takdir/Qada Qadar)
+        correct: 0 // Kunci: Dampak spiritual (syirik asghar/penghapus amal).
     },
     {
-        question: "Seseorang yang sukses tidak boleh sombong, karena kesuksesan dan kekuatannya bersumber dari Allah. Jika Allah menghendaki, Dia bisa mencabut kekuatan itu seketika. Sifat Allah yang Maha Kuat adalah ...",
+        question: "Sikap toleransi (Tasamuh) dalam beragama yang benar sesuai ajaran Islam adalah ...",
         options: [
-            "Al-Qayyum",
-            "Al-Matin",
-            "Al-Baits",
-            "Al-Qawwiyu"
+            "Mengikuti ritual ibadah agama lain sebagai bentuk penghormatan.",
+            "Membiarkan umat agama lain beribadah sesuai keyakinannya tanpa mengganggu.",
+            "Menganggap semua agama itu sama benarnya.",
+            "Melarang teman berbeda agama merayakan hari rayanya."
         ],
-        correct: 3 // D (Al-Qawwiyu)
+        correct: 1 // Kunci: Batasan toleransi (akidah vs muamalah).
     },
     {
-        question: "Pernyataan yang tepat mengenai perbedaan makna **Al-Muhyi** dan **Al-Baits** adalah ...",
+        question: "Fulan meminjam pensil kepada Budi, tapi menghilangkannya. Budi marah. Fulan seharusnya ...",
         options: [
-            "Al-Muhyi menghidupkan dari ketiadaan/kematian di dunia, Al-Baits membangkitkan dari kubur di akhirat",
-            "Al-Muhyi mematikan, Al-Baits menghidupkan",
-            "Keduanya memiliki arti yang sama persis tidak ada bedanya",
-            "Al-Muhyi untuk manusia saja, Al-Baits untuk hewan saja"
+            "Menjauh dari Budi agar tidak dimarahi terus.",
+            "Meminta maaf dan berjanji menggantinya dengan pensil yang baru.",
+            "Mengatakan bahwa pensil itu murah dan tidak perlu dipermasalahkan.",
+            "Menyuruh Budi meminjam pensil ke orang lain saja."
         ],
-        correct: 0 // A (Perbedaan konteks menghidupkan)
+        correct: 1 // Kunci: Tanggung jawab (Ganti rugi & minta maaf).
     },
     {
-        question: "Supaya kita bisa hidup mandiri (meneladani Al-Qayyum) di masa depan, hal yang harus kita lakukan sejak SD adalah ...",
+        question: "Dalam surah Al-Ma'un, orang yang salat bisa disebut celaka jika ...",
         options: [
-            "Menabung uang jajan untuk membeli mainan",
-            "Belajar dengan rajin dan melatih keterampilan diri",
-            "Menyuruh pembantu melakukan semua hal",
-            "Hanya bermain game sepanjang hari"
+            "Salatnya tidak khusyuk karena memikirkan pekerjaan.",
+            "Salatnya diakhirkan karena ketiduran.",
+            "Lalai dari tujuan salatnya (berbuat riya') dan enggan memberikan bantuan (barang berguna).",
+            "Lupa jumlah rakaat salatnya."
         ],
-        correct: 1 // B (Investasi skill untuk kemandirian)
+        correct: 2 // Kunci: Pemahaman tafsir surah Al-Ma'un (kepedulian sosial).
     },
     {
-        question: "Rasulullah SAW bersabda bahwa orang yang cerdas adalah orang yang mengingat kematian dan mempersiapkan bekal untuknya. Ini adalah implementasi iman kepada ...",
+        question: "Menjaga lisan adalah keselamatan. Ghibah (menggunjing) diibaratkan memakan bangkai saudara sendiri karena ...",
         options: [
-            "Al-Qawwiyu",
-            "Al-Baits",
-            "Al-Qayyum",
-            "Al-Mumit"
+            "Ghibah membicarakan keburukan orang yang tidak hadir (tidak bisa membela diri), perbuatan yang sangat menjijikkan.",
+            "Orang yang dighibahi pasti akan sakit fisik seperti mayat.",
+            "Ghibah membuat mulut pelakunya berbau busuk secara harfiah.",
+            "Itu hanya kiasan agar orang takut berbicara."
         ],
-        correct: 3 // D (Al-Mumit)
+        correct: 0 // Kunci: Analisis metafora Al-Quran tentang aib.
     },
     {
-        question: "Jika kita sedang malas belajar, kita harus segera 'bangkit' melawan rasa malas tersebut. Sikap tidak mudah menyerah ini meneladani Asmaul Husna ...",
+        question: "Kenapa Islam mengajarkan kita untuk mengucapkan 'Insya Allah' saat berjanji?",
         options: [
-            "Al-Mumit",
-            "Al-Muhyi",
-            "Al-Baits",
-            "Al-Qayyum"
+            "Agar jika kita ingkar janji, kita tidak berdosa.",
+            "Sebagai bentuk kesopanan budaya Arab saja.",
+            "Bentuk kesadaran bahwa segala rencana manusia bergantung pada kehendak Allah.",
+            "Supaya teman kita tidak terlalu berharap pada janji kita."
         ],
-        correct: 2 // C (Al-Baits - Bangkit)
+        correct: 2 // Kunci: Tauhid dalam etika berjanji.
+    },
+    {
+        question: "Amanah tidak hanya soal barang titipan, tapi juga jabatan/tugas. Ketua kelas yang amanah adalah ...",
+        options: [
+            "Yang selalu menuruti semua keinginan teman sekelasnya.",
+            "Yang berani melaporkan teman yang salah meskipun itu sahabat dekatnya demi keadilan.",
+            "Yang menggunakan uang kas kelas untuk mentraktir teman agar disukai.",
+            "Yang mengerjakan semua tugas piket sendirian karena merasa bertanggung jawab."
+        ],
+        correct: 1 // Kunci: Profesionalisme dan integritas pemimpin.
+    },
+    {
+        question: "Ketika mendengar azan berkumandang saat sedang asyik bermain game online, tindakan yang menunjukkan prioritas akhirat adalah ...",
+        options: [
+            "Menyelesaikan level game dulu karena tanggung, baru salat.",
+            "Menghentikan permainan segera, bersiap ke masjid, dan mengajak teman.",
+            "Mematikan suara HP agar tidak mengganggu orang lain, tapi tetap main.",
+            "Salat di samping HP agar bisa langsung lanjut main setelah salam."
+        ],
+        correct: 1 // Kunci: Manajemen prioritas (Ibadah vs Hiburan).
+    },
+    {
+        question: "Berinfak tidak harus menunggu kaya. Manfaat rutin berinfak bagi karakter siswa adalah ...",
+        options: [
+            "Mengurangi uang jajan sehingga bisa diet.",
+            "Melatih sifat kikir dan sombong.",
+            "Melatih kepekaan sosial dan mengikis kecintaan berlebih pada harta dunia.",
+            "Agar nama kita dicatat di papan pengumuman sekolah."
+        ],
+        correct: 2 // Kunci: Dampak psikologis/spiritual sedekah.
+    },
+    {
+        question: "Sikap *Istiqomah* (teguh pendirian) dalam kebaikan sangat berat. Contoh istiqomah yang relevan bagi pelajar adalah ...",
+        options: [
+            "Belajar terus menerus tanpa tidur selama 2 hari.",
+            "Selalu menyontek setiap ulangan agar nilainya stabil bagus.",
+            "Menjaga rutinitas belajar dan ibadah harian meskipun sedang malas atau libur.",
+            "Bersikeras dengan pendapatnya sendiri meskipun salah."
+        ],
+        correct: 2 // Kunci: Konsistensi dalam hal positif.
+    },
+    {
+        question: "Jika kamu berbeda pendapat dengan teman saat kerja kelompok, sikap demokratis yang Islami (Musyawarah) adalah ...",
+        options: [
+            "Marah dan keluar dari kelompok.",
+            "Memaksa teman menerima pendapat kita karena kita ranking 1.",
+            "Mendengarkan pendapat lain, mendiskusikan kelebihan kekurangannya, dan menerima keputusan bersama.",
+            "Diam saja dan tidak peduli hasil akhirnya."
+        ],
+        correct: 2 // Kunci: Etika diskusi (Syura).
+    },
+    {
+        question: "Mensyukuri nikmat akal yang diberikan Allah dapat dilakukan dengan cara ...",
+        options: [
+            "Menggunakannya untuk memikirkan cara mengalahkan teman.",
+            "Menggunakannya untuk merenungi ciptaan Allah dan memecahkan masalah umat.",
+            "Mengistirahatkannya dengan banyak tidur.",
+            "Membanggakan kecerdasan diri di depan orang bodoh."
+        ],
+        correct: 1 // Kunci: Optimalisasi potensi diri untuk kemaslahatan.
     }
 ];
 
 let userAnswers = new Array(questions.length).fill(null);
 let quizCompleted = false;
 let currentQuestion = 0;
+
+// tambahan untuk kontrol akses mini game
+let lastScorePercentage = 0;
 
 // --- LOGIKA KUIS UTAMA ---
 
@@ -476,12 +479,15 @@ function showResults() {
     });
 
     const percentage = Math.round((correctCount / questions.length) * 100);
+    lastScorePercentage = percentage; // simpan nilai terakhir
+
     const scoreDisplay = document.getElementById('score-display');
     
-    // Logic Hadiah (SYARAT 80%)
+    // Logic Hadiah
     let scoreHTML = `<p class="score-text">Skor Akhir: ${correctCount}/${questions.length} (${percentage}%)</p>`;
     
-    if (percentage >= 80) { // Changed condition to 80%
+    // UBAHAN: minimal 80% untuk membuka game
+    if (percentage >= 80) {
         scoreHTML += `
             <div class="reward-section">
                 <h4 style="color:#e80368; font-weight:bold;">🎉 Selamat! Hadiah Game Terbuka! 🎉</h4>
@@ -500,7 +506,7 @@ function showResults() {
             </div>
         `;
     } else {
-        scoreHTML += `<p>Nilai kamu belum cukup untuk membuka game bonus (Min. 80%). <br> Ayo belajar lagi dan coba ulangi kuisnya!</p>`;
+        scoreHTML += `<p>Nilai kamu belum cukup untuk membuka game bonus (Minimal 80%). <br> Jangan menyerah, ulangi kuis dan tingkatkan lagi ya!</p>`;
     }
     
     scoreHTML += `<button class="reset-button" onclick="resetQuiz()">🔄 Ulangi Kuis</button>`;
@@ -519,6 +525,7 @@ function resetQuiz() {
     userAnswers = new Array(questions.length).fill(null);
     quizCompleted = false;
     currentQuestion = 0;
+    lastScorePercentage = 0;
     
     document.getElementById('score-display').style.display = 'none';
     document.querySelector('.navigation-container').style.display = 'flex';
@@ -529,14 +536,33 @@ function resetQuiz() {
 }
 
 function hideAllGames() {
-    document.getElementById('memory-game').style.display = 'none';
-    document.getElementById('word-puzzle').style.display = 'none';
-    document.getElementById('color-match').style.display = 'none';
+    const mg = document.getElementById('memory-game');
+    const wp = document.getElementById('word-puzzle');
+    const cm = document.getElementById('color-match');
+    if (mg) mg.style.display = 'none';
+    if (wp) wp.style.display = 'none';
+    if (cm) cm.style.display = 'none';
 }
 
 function backToScore() {
     hideAllGames();
-    document.getElementById('score-display').style.display = 'block';
+    const sd = document.getElementById('score-display');
+    if (sd) sd.style.display = 'block';
+}
+
+// --- FUNGSI PENGAMAN AKSES MINI GAME ---
+
+function canAccessMiniGames() {
+    if (!quizCompleted) {
+        alert("Selesaikan dulu semua soal kuis sebelum bermain mini game.");
+        return false;
+    }
+    if (lastScorePercentage < 80) {
+        alert("Maaf, kamu belum mencapai nilai minimal 80%.\nUlangi kuis dan tingkatkan lagi hasilmu untuk membuka mini game.");
+        backToScore();
+        return false;
+    }
+    return true;
 }
 
 // --- LOGIKA MINI GAMES ---
@@ -547,10 +573,12 @@ let flippedCards = [];
 let memoryScore = 0;
 let memoryTimer = null;
 let memoryTime = 0;
-// Menggunakan Asmaul Husna yang baru
-const asmaulHusna = ['Al-Qawwiyu', 'Al-Qayyum', 'Al-Muhyi', 'Al-Mumit', 'Al-Baits', 'Al-Matin', 'Al-Wahid', 'Al-Ahad'];
+const asmaulHusna = ['الرحمن', 'الرحيم', 'الملك', 'القدوس', 'السلام', 'المؤمن', 'المهيمن', 'العزيز'];
 
 function startMemoryGame() {
+    // cek hak akses dulu
+    if (!canAccessMiniGames()) return;
+
     document.getElementById('score-display').style.display = 'none';
     document.getElementById('memory-game').style.display = 'block';
     initMemoryGame();
@@ -587,6 +615,8 @@ function initMemoryGame() {
 
 function flipCard(index) {
     const card = document.getElementById(`card-${index}`);
+    if (!card) return;
+
     if (card.classList.contains('flipped') || card.classList.contains('matched') || flippedCards.length >= 2) {
         return;
     }
@@ -605,7 +635,7 @@ function checkMemoryMatch() {
     const firstCard = document.getElementById(`card-${first}`);
     const secondCard = document.getElementById(`card-${second}`);
     
-    if (memoryCards[first] === memoryCards[second]) {
+    if (firstCard && secondCard && memoryCards[first] === memoryCards[second]) {
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
         memoryScore += 10;
@@ -617,10 +647,12 @@ function checkMemoryMatch() {
             }, 500);
         }
     } else {
-        firstCard.classList.remove('flipped');
-        secondCard.classList.remove('flipped');
-        firstCard.textContent = '?';
-        secondCard.textContent = '?';
+        if (firstCard && secondCard) {
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
+            firstCard.textContent = '?';
+            secondCard.textContent = '?';
+        }
     }
     flippedCards = [];
     updateMemoryScore();
@@ -639,19 +671,21 @@ function resetMemoryGame() {
 let puzzleScore = 0;
 let puzzleLevel = 1;
 let currentPuzzle = 0;
-// Update kata-kata puzzle sesuai tema
 const akhlakWords = [
-    { scrambled: 'YUMQAY', answer: 'QAYYUM' },
-    { scrambled: 'WIYYUQA', answer: 'QAWWIYU' },
-    { scrambled: 'YIHUAM', answer: 'MUHYI' },
-    { scrambled: 'TUMIM', answer: 'MUMIT' },
-    { scrambled: 'SITBA', answer: 'BAITS' },
-    { scrambled: 'DIRIMAN', answer: 'MANDIRI' },
-    { scrambled: 'KITHANG', answer: 'BANGKIT' },
-    { scrambled: 'TUA K', answer: 'KUAT' }
+    { scrambled: 'HLAKSA', answer: 'AKHLAK' },
+    { scrambled: 'RABAS', answer: 'SABAR' },
+    { scrambled: 'RUJUJ', answer: 'JUJUR' },
+    { scrambled: 'KALIS', answer: 'IKHLAS' },
+    { scrambled: 'WAWAT', answer: 'TAWADHU' },
+    { scrambled: 'NAMAS', answer: 'AMANAH' },
+    { scrambled: 'RABIK', answer: 'IKBAR' },
+    { scrambled: 'HALES', answer: 'SHALEH' }
 ];
 
 function startWordPuzzle() {
+    // cek hak akses dulu
+    if (!canAccessMiniGames()) return;
+
     document.getElementById('score-display').style.display = 'none';
     document.getElementById('word-puzzle').style.display = 'block';
     initWordPuzzle();
@@ -673,8 +707,8 @@ function updateWordPuzzle() {
 }
 
 function checkWord() {
-    const input = document.getElementById('word-input').value.toUpperCase().replace(/\s/g, ''); // Hapus spasi
-    const correct = akhlakWords[currentPuzzle].answer.replace(/\s/g, '');
+    const input = document.getElementById('word-input').value.toUpperCase();
+    const correct = akhlakWords[currentPuzzle].answer;
     
     if (input === correct) {
         puzzleScore += 20;
@@ -710,6 +744,9 @@ const colors = [
 ];
 
 function startColorMatch() {
+    // cek hak akses dulu
+    if (!canAccessMiniGames()) return;
+
     document.getElementById('score-display').style.display = 'none';
     document.getElementById('color-match').style.display = 'block';
     initColorMatch();
