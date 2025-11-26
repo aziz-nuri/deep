@@ -39,13 +39,13 @@
 
 /* Typography Adjustment to match Tempo (Nunito/Poppins) */
 .quiz-header { text-align: center; margin-bottom: 20px; }
-.quiz-title { font-family: "Poppins", sans-serif; color: #444444; font-weight: 600; }
-.quiz-section .instruction { font-family: "Nunito", sans-serif; color: #777777; }
+.quiz-title { font-family: "Poppins", sans-serif; color: #444444; font-weight: 600; margin-bottom: 5px;}
+.quiz-section .instruction { font-family: "Nunito", sans-serif; color: #777777; margin-bottom: 0; }
 
 /* Quiz Components */
 .quiz-container {
     position: relative;
-    height: 400px; /* Adjusted height */
+    height: 450px; /* Sedikit dipertinggi agar muat di HP */
     overflow: hidden;
     margin-bottom: 20px;
 }
@@ -53,7 +53,7 @@
 .question-card {
     background: #fff;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -101,6 +101,7 @@
     text-align: left;
     transition: all 0.3s;
     font-family: "Nunito", sans-serif;
+    cursor: pointer;
 }
 
 .option-button:hover {
@@ -132,6 +133,7 @@
     border-radius: 50px;
     font-weight: 600;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .nav-button:hover, .game-btn:hover, .reset-button:hover { background: #c20256; }
@@ -156,7 +158,7 @@
 .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px; }
 .game-button {
     background: white; border: 1px solid #ddd; padding: 15px; border-radius: 8px;
-    display: flex; flex-direction: column; align-items: center; transition: 0.3s;
+    display: flex; flex-direction: column; align-items: center; transition: 0.3s; cursor: pointer;
 }
 .game-button:hover { border-color: #e80368; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(232,3,104,0.1); }
 .game-button span { font-weight: bold; margin-top: 5px; color: #444; }
@@ -182,4 +184,5 @@
 @media (max-width: 768px) {
     .options-grid { grid-template-columns: 1fr; }
     .quiz-container { height: 500px; }
+    .question-text { font-size: 1rem; }
 }
