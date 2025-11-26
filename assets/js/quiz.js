@@ -1,32 +1,154 @@
-// Konfigurasi Default (Tanpa SDK Element)
-const defaultConfig = {
-    quiz_title: "🌟 Ulangan PAI 🌟",
-    instruction_text: "Pilih jawaban yang paling tepat untuk setiap pertanyaan!"
-};
+// --- KONFIGURASI DAN DATA ---
 
-let config = { ...defaultConfig };
-
-// Data Pertanyaan (Sama seperti sebelumnya)
 const questions = [
     {
         question: "Ketika melihat teman sekelas yang yatim tidak membawa bekal, sikap yang paling tepat adalah …",
-        options: [
-            "Membiarkan saja karena bukan urusan kita",
-            "Membantunya tanpa membuatnya merasa malu",
-            "Menertawakannya bersama teman lain",
-            "Menyuruhnya meminta kepada guru"
-        ],
+        options: ["Membiarkan saja karena bukan urusan kita", "Membantunya tanpa membuatnya merasa malu", "Menertawakannya bersama teman lain", "Menyuruhnya meminta kepada guru"],
         correct: 1
     },
-    // ... (Masukkan sisa pertanyaan dari file script.js sebelumnya di sini) ...
+    {
+        question: "Perbuatan berikut yang paling menunjukkan ketakwaan kepada Allah melalui sikap kepada anak yatim adalah …",
+        options: ["Menyumbang sekali lalu tidak peduli lagi", "Memberi bantuan sambil mengharapkan balasan", "Menolong secara tulus dan berkelanjutan", "Memberi hanya ketika dilihat guru"],
+        correct: 2
+    },
+    {
+        question: "Jika kamu ingin mengajak teman lain untuk peduli pada anak yatim, cara yang paling baik adalah …",
+        options: ["Memaksa mereka menyumbang", "Menjelaskan manfaat sedekah dan memberi contoh", "Mengeluh bahwa hanya kamu yang peduli", "Menghukum mereka yang tidak mau"],
+        correct: 1
+    },
+    {
+        question: "Tujuan utama Islam memerintahkan umatnya menyayangi anak yatim adalah …",
+        options: ["Agar masyarakat menghormati kita", "Agar anak yatim merasa dihargai dan tidak tersisih", "Agar kita dianggap dermawan", "Agar mendapat hadiah dari sekolah"],
+        correct: 1
+    },
+    {
+        question: "Saat mengetahui ada anak yatim yang sering dibully, tindakan paling tepat adalah …",
+        options: ["Diam saja karena bukan masalah kita", "Ikut membully agar tidak dianggap berbeda", "Melaporkan ke guru dan memberi dukungan", "Menasihati dari jauh tanpa menolong"],
+        correct: 2
+    },
+    {
+        question: "Rasulullah SAW sangat menyayangi anak yatim. Teladan ini sebaiknya kita tiru dengan cara …",
+        options: ["Membantu hanya saat acara tertentu", "Menyayangi semua teman tanpa membeda-bedakan", "Menunggu perintah orang tua dulu", "Hanya membantu anak yatim yang kaya"],
+        correct: 1
+    },
+    {
+        question: "Jika kamu tidak memiliki uang untuk membantu anak yatim, sikap terbaik adalah …",
+        options: ["Tidak melakukan apa-apa", "Menghindarinya", "Membantu dengan tenaga atau perhatian", "Menyalahkan orang lain"],
+        correct: 2
+    },
+    {
+        question: "Ketika kita memahami Asmaul Husna Al-Bashir (Yang Maha Melihat), perilaku yang seharusnya muncul adalah …",
+        options: ["Melakukan kebaikan hanya di depan guru", "Berbuat baik meski tidak ada yang melihat", "Menyembunyikan kesalahan dari orang lain", "Bangga ketika dipuji"],
+        correct: 1
+    },
+    {
+        question: "Seseorang percaya bahwa Allah Ar-Rahman (Maha Pengasih). Dalam kehidupan sehari-hari ia seharusnya …",
+        options: ["Memberi hanya kepada teman dekat", "Menyebarkan kebaikan tanpa pilih kasih", "Menolong agar dipuji", "Menyayangi hanya jika dibalas"],
+        correct: 1
+    },
+    {
+        question: "Memahami Allah Al-Alim (Maha Mengetahui) membuat kita …",
+        options: ["Takut belajar", "Semangat belajar karena Allah mengetahui usaha kita", "Malas karena semuanya sudah diketahui Allah", "Berhenti berusaha"],
+        correct: 1
+    },
+    {
+        question: "Saat mengetahui Allah adalah Al-Ghafur (Maha Pengampun), sikap bijak yang harus kita lakukan adalah …",
+        options: ["Tidak perlu memperbaiki kesalahan", "Sering berbuat salah karena pasti diampuni", "Segera bertaubat dan memperbaiki diri", "Menunda meminta maaf"],
+        correct: 2
+    },
+    {
+        question: "Memahami As-Sami' (Maha Mendengar) mendorong kita untuk …",
+        options: ["Berdoa dengan sungguh-sungguh", "Berbicara sesuka hati", "Menghina orang lain secara diam-diam", "Berbohong dengan suara pelan"],
+        correct: 0
+    },
+    {
+        question: "Bila seseorang yakin Allah Al-Adl (Maha Adil), maka ia akan …",
+        options: ["Berbuat sesuka hati", "Selalu bersikap adil kepada teman", "Lebih suka membalas kesalahan", "Memilih teman tertentu saja"],
+        correct: 1
+    },
+    {
+        question: "Memahami Asmaul Husna seharusnya membuat seorang muslim …",
+        options: ["Takut berbuat kebaikan", "Meniru sifat-sifat baik Allah sesuai kemampuan", "Merasa paling benar", "Mudah menyerah"],
+        correct: 1
+    },
+    {
+        question: "Ketika orang tua menyuruh membantu membersihkan rumah, sikap anak sholeh adalah …",
+        options: ["Membantu dengan setengah hati", "Menolak karena sedang bermain", "Melakukannya dengan ikhlas", "Melakukannya setelah dimarahi"],
+        correct: 2
+    },
+    {
+        question: "Salah satu ciri anak sholeh adalah disiplin. Contoh penerapan disiplin adalah …",
+        options: ["Belajar hanya ketika ujian", "Menunda salat hingga larut", "Menepati waktu belajar dan ibadah", "Bangun terlambat setiap hari"],
+        correct: 2
+    },
+    {
+        question: "Jika melihat teman berbuat salah, perilaku anak sholeh adalah …",
+        options: ["Membiarkan", "Menertawakan", "Menasihati dengan cara baik", "Melapor tanpa mencoba menasihati"],
+        correct: 2
+    },
+    {
+        question: "Anak sholeh selalu berkata jujur. Hal ini bermanfaat untuk …",
+        options: ["Membuat orang lain takut", "Mendapat nilai tinggi tanpa belajar", "Dipercaya oleh guru dan teman", "Mendapat pujian setiap hari"],
+        correct: 2
+    },
+    {
+        question: "Jika diminta mengumpulkan tugas, anak sholeh akan …",
+        options: ["Menyalin tugas teman", "Mengerjakan sendiri dengan sungguh-sungguh", "Menunggu ditegur", "Mengabaikan"],
+        correct: 1
+    },
+    {
+        question: "Sikap terbaik saat melihat sampah berserakan di masjid adalah …",
+        options: ["Melewati saja", "Menyuruh orang lain", "Membersihkan dengan niat ibadah", "Menunggu petugas kebersihan"],
+        correct: 2
+    },
+    {
+        question: "Contoh perilaku malu yang benar (haya') adalah …",
+        options: ["Malu bertanya meski tidak paham", "Malu melakukan maksiat", "Malu berbuat baik", "Malu meminta maaf"],
+        correct: 1
+    },
+    {
+        question: "Ketika ada teman yang membutuhkan bantuan belajar, sikap anak sholeh adalah …",
+        options: ["Menolak agar tidak tersaingi", "Membantu sebisanya", "Mengabaikan", "Mengeluh"],
+        correct: 1
+    },
+    {
+        question: "Berbagi bukan hanya tentang harta. Contoh berbagi yang benar adalah …",
+        options: ["Mengajari teman yang belum paham pelajaran", "Menunggu orang lain berbagi dulu", "Berbagi agar terlihat baik", "Berbagi kepada orang kaya"],
+        correct: 0
+    },
+    {
+        question: "Jika seseorang memiliki makanan lebih dan melihat tetangganya belum makan, tindakan yang paling tepat adalah …",
+        options: ["Memakannya sendiri", "Menyimpannya untuk besok", "Membaginya dengan tetangga", "Menjualnya"],
+        correct: 2
+    },
+    {
+        question: "Berbagi dapat membuat hati menjadi lapang karena …",
+        options: ["Orang lain akan membalas", "Kita merasa lebih hebat", "Kita menolong tanpa berharap imbalan", "Kita mendapat pujian"],
+        correct: 2
+    },
+    {
+        question: "Seorang teman kehilangan alat tulisnya. Cara berbagi yang baik adalah …",
+        options: ["Meminjamkannya alat tulis milikmu", "Menertawakannya", "Mengabaikan", "Menjual alat tulismu kepadanya"],
+        correct: 0
+    },
+    {
+        question: "Berbagi waktu dapat dilakukan dengan cara …",
+        options: ["Menghabiskan waktu untuk bermain game", "Membantu adik belajar", "Menolak menolong orang tua", "Mengabaikan tugas rumah"],
+        correct: 1
+    },
+    {
+        question: "Dalam Islam, berbagi sebaiknya dilakukan …",
+        options: ["Saat diingatkan saja", "Saat ingin dipuji", "Kapan pun dengan hati ikhlas", "Ketika sedang banyak uang saja"],
+        correct: 2
+    },
+    {
+        question: "Jika seseorang merasa berat untuk bersedekah, cara melatih diri agar ikhlas adalah …",
+        options: ["Menyumbang dalam jumlah besar", "Mulai berbagi hal kecil secara rutin", "Memaksa diri tanpa niat", "Hanya memberi saat kaya"],
+        correct: 1
+    },
     {
         question: "Berbagi dapat menciptakan persaudaraan karena …",
-        options: [
-            "Semua orang akan berutang budi",
-            "Kita menjadi lebih disukai guru",
-            "Membantu mengurangi kesenjangan dan menumbuhkan empati",
-            "Menunjukkan siapa yang paling kaya"
-        ],
+        options: ["Semua orang akan berutang budi", "Kita menjadi lebih disukai guru", "Membantu mengurangi kesenjangan dan menumbuhkan empati", "Menunjukkan siapa yang paling kaya"],
         correct: 2
     }
 ];
@@ -35,19 +157,18 @@ let userAnswers = new Array(questions.length).fill(null);
 let quizCompleted = false;
 let currentQuestion = 0;
 
-// --- Render Functions (Logic disesuaikan sedikit untuk struktur baru) ---
+// --- LOGIKA KUIS UTAMA ---
 
 function renderQuiz() {
     const container = document.getElementById('quiz-container');
     const indicatorContainer = document.getElementById('slide-indicator');
     
-    // Safety check jika elemen belum ada di DOM
     if (!container || !indicatorContainer) return;
 
     container.innerHTML = '';
     indicatorContainer.innerHTML = '';
 
-    // Create indicator dots
+    // Buat indikator bulat
     questions.forEach((_, index) => {
         const dot = document.createElement('div');
         dot.className = `indicator-dot ${index === 0 ? 'active' : ''}`;
@@ -55,6 +176,7 @@ function renderQuiz() {
         indicatorContainer.appendChild(dot);
     });
 
+    // Buat kartu pertanyaan
     questions.forEach((q, index) => {
         const questionCard = document.createElement('div');
         questionCard.className = `question-card ${index === 0 ? 'active' : ''}`;
@@ -90,20 +212,17 @@ function renderQuiz() {
 function selectAnswer(questionIndex, optionIndex) {
     if (quizCompleted) return;
 
-    // Remove previous selection
     for (let i = 0; i < 4; i++) {
         const btn = document.getElementById(`q${questionIndex}_opt${i}`);
         if(btn) btn.classList.remove('selected');
     }
 
-    // Add selection to clicked option
     const selectedBtn = document.getElementById(`q${questionIndex}_opt${optionIndex}`);
     if(selectedBtn) selectedBtn.classList.add('selected');
     
     userAnswers[questionIndex] = optionIndex;
     updateProgress();
 
-    // Auto advance
     setTimeout(() => {
         if (currentQuestion < questions.length - 1) {
             nextQuestion();
@@ -197,13 +316,13 @@ function showResults() {
     const percentage = Math.round((correctCount / questions.length) * 100);
     const scoreDisplay = document.getElementById('score-display');
     
-    // Logic Hadiah
     let scoreHTML = `<p class="score-text">Skor Akhir: ${correctCount}/${questions.length} (${percentage}%)</p>`;
     
     if (percentage >= 70) {
         scoreHTML += `
             <div class="reward-section">
-                <h4 style="color:#e80368">🎉 Selamat! Game Terbuka! 🎉</h4>
+                <h4 style="color:#e80368; font-weight:bold;">🎉 Selamat! Hadiah Game Terbuka! 🎉</h4>
+                <p>Kamu hebat! Silakan pilih game untuk dimainkan:</p>
                 <div class="games-grid">
                     <button class="game-button" onclick="startMemoryGame()">
                         🧠 <span>Memory</span>
@@ -218,7 +337,7 @@ function showResults() {
             </div>
         `;
     } else {
-        scoreHTML += `<p>Nilai belum cukup untuk membuka game. Coba lagi ya!</p>`;
+        scoreHTML += `<p>Nilai kamu belum cukup untuk membuka game bonus (Min. 70%). <br> Jangan menyerah, coba lagi ya!</p>`;
     }
     
     scoreHTML += `<button class="reset-button" onclick="resetQuiz()">🔄 Ulangi Kuis</button>`;
@@ -237,53 +356,250 @@ function resetQuiz() {
     userAnswers = new Array(questions.length).fill(null);
     quizCompleted = false;
     currentQuestion = 0;
+    
     document.getElementById('score-display').style.display = 'none';
     document.querySelector('.navigation-container').style.display = 'flex';
     document.getElementById('slide-indicator').style.display = 'flex';
-    renderQuiz();
     
-    // Hide all games
+    renderQuiz();
+    hideAllGames();
+}
+
+function hideAllGames() {
     document.getElementById('memory-game').style.display = 'none';
     document.getElementById('word-puzzle').style.display = 'none';
     document.getElementById('color-match').style.display = 'none';
 }
 
-// --- GAME LOGIC START HERE (Copy logika game dari script.js sebelumnya) ---
-// (Paste fungsi startMemoryGame, initMemoryGame, dll di sini. Pastikan variabel global game juga tercopy)
+function backToScore() {
+    hideAllGames();
+    document.getElementById('score-display').style.display = 'block';
+}
 
-// Variabel Global Game (Contoh)
+// --- GAME LOGIC ---
+
+// 1. Memory Game
 let memoryCards = [];
 let flippedCards = [];
 let memoryScore = 0;
-// ... dst
+let memoryTimer = null;
+let memoryTime = 0;
+const asmaulHusna = ['الرحمن', 'الرحيم', 'الملك', 'القدوس', 'السلام', 'المؤمن', 'المهيمن', 'العزيز'];
 
-// Fungsi Game (Contoh Memory Game)
 function startMemoryGame() {
     document.getElementById('score-display').style.display = 'none';
     document.getElementById('memory-game').style.display = 'block';
     initMemoryGame();
 }
 
-function backToScore() {
-    document.getElementById('memory-game').style.display = 'none';
-    document.getElementById('word-puzzle').style.display = 'none';
-    document.getElementById('color-match').style.display = 'none';
-    document.getElementById('score-display').style.display = 'block';
-}
-
-// Data Dummy Game (Agar script jalan, pastikan isi penuh dari script.js sebelumnya)
-const asmaulHusna = ['الرحمن', 'الرحيم', 'الملك', 'القدوس', 'السلام', 'المؤمن', 'المهيمن', 'العزيز'];
-
 function initMemoryGame() {
-    // Simple init logic
+    memoryScore = 0;
+    memoryTime = 0;
+    flippedCards = [];
+    
+    const cardPairs = [...asmaulHusna.slice(0, 8), ...asmaulHusna.slice(0, 8)];
+    memoryCards = cardPairs.sort(() => Math.random() - 0.5);
+    
     const grid = document.getElementById('memory-grid');
     grid.innerHTML = '';
-    // ... Logika memory game
-    grid.innerHTML = '<p>Game dimulai...</p>'; // Placeholder
+    
+    memoryCards.forEach((card, index) => {
+        const cardElement = document.createElement('button');
+        cardElement.className = 'memory-card';
+        cardElement.textContent = '?';
+        cardElement.onclick = () => flipCard(index);
+        cardElement.id = `card-${index}`;
+        grid.appendChild(cardElement);
+    });
+    
+    updateMemoryScore();
+    if(memoryTimer) clearInterval(memoryTimer);
+    memoryTimer = setInterval(() => {
+        memoryTime++;
+        const timerEl = document.getElementById('memory-time');
+        if(timerEl) timerEl.textContent = memoryTime;
+    }, 1000);
 }
 
-// Initialize on Load
+function flipCard(index) {
+    const card = document.getElementById(`card-${index}`);
+    if (card.classList.contains('flipped') || card.classList.contains('matched') || flippedCards.length >= 2) {
+        return;
+    }
+    
+    card.classList.add('flipped');
+    card.textContent = memoryCards[index];
+    flippedCards.push(index);
+    
+    if (flippedCards.length === 2) {
+        setTimeout(checkMemoryMatch, 1000);
+    }
+}
+
+function checkMemoryMatch() {
+    const [first, second] = flippedCards;
+    const firstCard = document.getElementById(`card-${first}`);
+    const secondCard = document.getElementById(`card-${second}`);
+    
+    if (memoryCards[first] === memoryCards[second]) {
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        memoryScore += 10;
+        
+        if (document.querySelectorAll('.memory-card.matched').length === memoryCards.length) {
+            clearInterval(memoryTimer);
+            setTimeout(() => {
+                alert(`🎉 Selamat! Kamu menyelesaikan Memory Game dalam ${memoryTime} detik!`);
+            }, 500);
+        }
+    } else {
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
+        firstCard.textContent = '?';
+        secondCard.textContent = '?';
+    }
+    flippedCards = [];
+    updateMemoryScore();
+}
+
+function updateMemoryScore() {
+    const scoreEl = document.getElementById('memory-score');
+    if(scoreEl) scoreEl.textContent = memoryScore;
+}
+
+function resetMemoryGame() {
+    initMemoryGame();
+}
+
+// 2. Word Puzzle
+let puzzleScore = 0;
+let puzzleLevel = 1;
+let currentPuzzle = 0;
+const akhlakWords = [
+    { scrambled: 'HLAKSA', answer: 'AKHLAK' },
+    { scrambled: 'RABAS', answer: 'SABAR' },
+    { scrambled: 'RUJUJ', answer: 'JUJUR' },
+    { scrambled: 'KALIS', answer: 'IKHLAS' },
+    { scrambled: 'WAWAT', answer: 'TAWADHU' },
+    { scrambled: 'NAMAS', answer: 'AMANAH' },
+    { scrambled: 'RABIK', answer: 'IKBAR' },
+    { scrambled: 'HALES', answer: 'SHALEH' }
+];
+
+function startWordPuzzle() {
+    document.getElementById('score-display').style.display = 'none';
+    document.getElementById('word-puzzle').style.display = 'block';
+    initWordPuzzle();
+}
+
+function initWordPuzzle() {
+    puzzleScore = 0;
+    puzzleLevel = 1;
+    currentPuzzle = 0;
+    updateWordPuzzle();
+}
+
+function updateWordPuzzle() {
+    const puzzle = akhlakWords[currentPuzzle];
+    document.getElementById('scrambled-word').textContent = puzzle.scrambled;
+    document.getElementById('word-input').value = '';
+    document.getElementById('puzzle-score').textContent = puzzleScore;
+    document.getElementById('puzzle-level').textContent = puzzleLevel;
+}
+
+function checkWord() {
+    const input = document.getElementById('word-input').value.toUpperCase();
+    const correct = akhlakWords[currentPuzzle].answer;
+    
+    if (input === correct) {
+        puzzleScore += 20;
+        alert('🎉 Benar! Jawaban kamu tepat!');
+        nextPuzzle();
+    } else {
+        alert('❌ Belum tepat, coba lagi!');
+    }
+}
+
+function nextPuzzle() {
+    currentPuzzle = (currentPuzzle + 1) % akhlakWords.length;
+    if (currentPuzzle === 0) {
+        puzzleLevel++;
+    }
+    updateWordPuzzle();
+}
+
+function resetWordPuzzle() {
+    initWordPuzzle();
+}
+
+// 3. Color Match
+let colorScore = 0;
+let currentColorTarget = '';
+const colors = [
+    { name: 'Merah', color: '#FF6B6B', id: 'red' },
+    { name: 'Biru', color: '#4ECDC4', id: 'blue' },
+    { name: 'Hijau', color: '#2ECC71', id: 'green' },
+    { name: 'Kuning', color: '#FFD700', id: 'yellow' },
+    { name: 'Ungu', color: '#9B59B6', id: 'purple' },
+    { name: 'Orange', color: '#E67E22', id: 'orange' }
+];
+
+function startColorMatch() {
+    document.getElementById('score-display').style.display = 'none';
+    document.getElementById('color-match').style.display = 'block';
+    initColorMatch();
+}
+
+function initColorMatch() {
+    colorScore = 0;
+    generateColorChallenge();
+}
+
+function generateColorChallenge() {
+    const targetColor = colors[Math.floor(Math.random() * colors.length)];
+    currentColorTarget = targetColor.id;
+    document.getElementById('color-target').textContent = targetColor.name;
+    
+    const grid = document.getElementById('color-grid');
+    grid.innerHTML = '';
+    
+    const shuffledColors = [...colors].sort(() => Math.random() - 0.5).slice(0, 6);
+    if (!shuffledColors.find(c => c.id === currentColorTarget)) {
+        shuffledColors[0] = targetColor;
+    }
+    
+    shuffledColors.forEach(color => {
+        const button = document.createElement('button');
+        button.className = 'color-button';
+        button.style.background = color.color;
+        button.textContent = color.name;
+        button.onclick = () => selectColor(color.id);
+        grid.appendChild(button);
+    });
+    
+    updateColorScore();
+}
+
+function selectColor(colorId) {
+    if (colorId === currentColorTarget) {
+        colorScore += 15;
+        alert('🎉 Benar! Warna yang tepat!');
+        generateColorChallenge();
+    } else {
+        alert('❌ Salah warna, coba lagi!');
+    }
+}
+
+function updateColorScore() {
+    const scoreEl = document.getElementById('color-score');
+    if(scoreEl) scoreEl.textContent = colorScore;
+}
+
+function resetColorMatch() {
+    initColorMatch();
+}
+
+// Inisialisasi saat halaman dimuat
 document.addEventListener('DOMContentLoaded', function() {
     renderQuiz();
 });
-
