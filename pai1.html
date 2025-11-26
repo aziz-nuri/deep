@@ -2,150 +2,168 @@
 <html lang="id">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Ulangan Harian PAI - Kelas 5</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Ulangan Harian PAI - Kelas 5</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <link href="assets/css/style.css" rel="stylesheet">
-
+  <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/quiz.css" rel="stylesheet">
 
 </head>
 
 <body class="geometric-bg">
 
-  <header id="header" class="fixed-top header-inner-pages">
-    <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="index.html">Aziz Deep Learning</a></h1>
-      
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-          <li><a class="nav-link scrollto active" href="modul-ajar.html">Kuis PAI</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-    </div>
-  </header>
-  <main id="main">
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="index.html">Aziz Deep Learning</a></h1>
+      
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+          <li><a class="nav-link scrollto active" href="modul-ajar.html">Kuis PAI</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
 
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Kuis PAI</li>
-        </ol>
-        <h2>Ulangan Harian PAI</h2>
-      </div>
-    </section>
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Kuis PAI</li>
+        </ol>
+        <h2>Ulangan Harian PAI</h2>
+      </div>
+    </section>
+<section id="quiz" class="quiz-section">
+      <div class="doodle doodle-star">⭐</div>
+      <div class="doodle doodle-heart">💖</div>
+      <div class="doodle doodle-book">📚</div>
+      <div class="doodle doodle-lightbulb">💡</div>
 
-        <section class="inner-page quiz-section">
-      <div class="doodle doodle-star">
-  ⭐
-</div>
-<div class="doodle doodle-heart">
-  💖
-</div>
-<div class="doodle doodle-book">
-  📚
-</div>
-<div class="doodle doodle-lightbulb">
-  💡
-</div>
-<div class="container">
-  <header class="header">
-    <h1 class="quiz-title" id="quiz-title">🌟 Ulangan PAI Kelas 5 🌟</h1>
-    <p class="instruction" id="instruction-text">Uji Pemahaman Belajar PAI SDN Ujung Menteng 03</p>
-  </header>
-  <div class="slide-indicator" id="slide-indicator"></div>
-  <main class="quiz-container" id="quiz-container"></main>
-  <div class="navigation-container"><button class="nav-button" id="prev-btn" onclick="previousQuestion()"> ⬅️ Sebelumnya </button>
-    <div class="progress-container">
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
-      <div class="progress-text" id="progress-text">
-        Pertanyaan 1 dari 30
-      </div>
-    </div><button class="nav-button" id="next-btn" onclick="nextQuestion()"> Selanjutnya ➡️ </button>
-  </div>
-  <div class="score-display" id="score-display" style="display: none;">
-    <p class="score-text" id="score-text"></p><button class="reset-button" onclick="resetQuiz()">🔄 Ulangi Kuis</button>
-  </div><div class="game-container" id="memory-game">
-    <div class="game-header">
-      <h2 class="game-title">🧠 Memory Game - Asmaul Husna</h2>
-      <p class="game-score">Skor: <span id="memory-score">0</span> | Waktu: <span id="memory-time">0</span>s</p>
-    </div>
-    <div class="memory-grid" id="memory-grid"></div>
-    <div class="game-controls"><button class="game-btn" onclick="resetMemoryGame()">🔄 Main Lagi</button> <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
-    </div>
-  </div>
-  <div class="game-container" id="word-puzzle">
-    <div class="game-header">
-      <h2 class="game-title">🧩 Teka-teki Kata Akhlak</h2>
-      <p class="game-score">Skor: <span id="puzzle-score">0</span> | Level: <span id="puzzle-level">1</span></p>
-    </div>
-    <div class="word-puzzle">
-      <p>Susun huruf-huruf ini menjadi kata yang benar:</p>
-      <div class="scrambled-word" id="scrambled-word">
-        HLAKSA
-      </div><input type="text" class="word-input" id="word-input" placeholder="Ketik jawabanmu..."> <br><button class="game-btn" onclick="checkWord()">✓ Cek Jawaban</button> <button class="game-btn" onclick="nextPuzzle()">➡️ Kata Berikutnya</button>
-    </div>
-    <div class="game-controls"><button class="game-btn" onclick="resetWordPuzzle()">🔄 Main Lagi</button> <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
-    </div>
-  </div>
-  <div class="game-container" id="color-match">
-    <div class="game-header">
-      <h2 class="game-title">🌈 Color Match Challenge</h2>
-      <p class="game-score">Skor: <span id="color-score">0</span> | Target: <span id="color-target">Merah</span></p>
-    </div>
-    <div class="color-match-grid" id="color-grid"></div>
-    <div class="game-controls"><button class="game-btn" onclick="resetColorMatch()">🔄 Main Lagi</button> <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
-    </div>
-  </div>
-</div>
-</section>
+      <div class="container">
 
-  </main><footer id="footer">
-    <div class="container d-md-flex py-4">
-      <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Aziz Deep Learning</span></strong>. All Rights Reserved
-        </div>
-      </div>
-    </div>
-  </footer><a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <div class="section-title">
+          <h2>ULANGAN PAI KELAS 5</h2>
+          <h3>Uji Pemahaman <span>SDN Ujung Menteng 03</span></h3>
+          <p>Selesaikan Ulangan dibawah ini</p>
+        </div>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+        <div class="quiz-wrapper-box">
+            <header class="quiz-header">
+                <h4 class="quiz-title" id="quiz-title">🌟 Mulai Kuis 🌟</h4>
+                <p class="instruction" id="instruction-text">Pilih jawaban yang paling tepat.</p>
+            </header>
+            
+            <div class="slide-indicator" id="slide-indicator"></div>
+            
+            <div class="quiz-container" id="quiz-container">
+                </div>
+            
+            <div class="navigation-container">
+                <button class="nav-button" id="prev-btn" onclick="previousQuestion()"> ⬅️ Sebelumnya </button>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text">Pertanyaan 1 dari 30</div>
+                </div>
+                <button class="nav-button" id="next-btn" onclick="nextQuestion()"> Selanjutnya ➡️ </button>
+            </div>
+            
+            <div class="score-display" id="score-display" style="display: none;">
+                <p class="score-text" id="score-text"></p>
+                <button class="reset-button" onclick="resetQuiz()">🔄 Ulangi Kuis</button>
+            </div>
 
-  <script src="assets/js/main.js"></script>
+            <div class="game-container" id="memory-game">
+                <div class="game-header">
+                    <h2 class="game-title">🧠 Memory Game</h2>
+                    <p class="game-score">Skor: <span id="memory-score">0</span> | Waktu: <span id="memory-time">0</span>s</p>
+                </div>
+                <div class="memory-grid" id="memory-grid"></div>
+                <div class="game-controls">
+                    <button class="game-btn" onclick="resetMemoryGame()">🔄 Main Lagi</button> 
+                    <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
+                </div>
+            </div>
+
+            <div class="game-container" id="word-puzzle">
+                <div class="game-header">
+                    <h2 class="game-title">🧩 Teka-teki Kata</h2>
+                    <p class="game-score">Skor: <span id="puzzle-score">0</span> | Level: <span id="puzzle-level">1</span></p>
+                </div>
+                <div class="word-puzzle">
+                    <p>Susun kata:</p>
+                    <div class="scrambled-word" id="scrambled-word">HLAKSA</div>
+                    <input type="text" class="word-input" id="word-input" placeholder="Jawaban..."> <br>
+                    <button class="game-btn" onclick="checkWord()">✓ Cek</button> 
+                    <button class="game-btn" onclick="nextPuzzle()">➡️ Lanjut</button>
+                </div>
+                <div class="game-controls">
+                    <button class="game-btn" onclick="resetWordPuzzle()">🔄 Main Lagi</button> 
+                    <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
+                </div>
+            </div>
+
+            <div class="game-container" id="color-match">
+                <div class="game-header">
+                    <h2 class="game-title">🌈 Color Match</h2>
+                    <p class="game-score">Skor: <span id="color-score">0</span> | Target: <span id="color-target">Merah</span></p>
+                </div>
+                <div class="color-match-grid" id="color-grid"></div>
+                <div class="game-controls">
+                    <button class="game-btn" onclick="resetColorMatch()">🔄 Main Lagi</button> 
+                    <button class="game-btn" onclick="backToScore()">⬅️ Kembali</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    </section>
+
+  </main><footer id="footer">
+    <div class="container d-md-flex py-4">
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Aziz Deep Learning</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </div>
+  </footer><a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 
 </html>
+
 
 
